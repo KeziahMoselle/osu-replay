@@ -19,3 +19,8 @@ This is a project I had the idea to do in order to deepen my knowledge, I though
 * Add Leaderboard
 * Add a Youtube link
 * Add some cool badges
+
+## Problems encountered
+
+  * I can't fetch replay data (Like the name, maxcombo, mods etc..) So i add an input "beatmap_id" to fetch the data.
+  I can't use the api/get_scores because with that technique i can't fetch the data of an unranked beatmap. I plan to update the upload.php file soon.
