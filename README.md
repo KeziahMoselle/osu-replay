@@ -30,10 +30,4 @@ file soon.
 ## Installation
 
 * Replace <dbName> and <password>
-`
-$db = new PDO("mysql:host=localhost;dbname=<dbName>", "<dbName>", "<password>"); 
-`
 * Replace <osu!ApiKey> with your API key here : https://osu.ppy.sh/p/api
-`
-$key = "<osu!ApiKey>";
-`
