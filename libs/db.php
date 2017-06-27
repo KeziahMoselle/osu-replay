@@ -1,6 +1,6 @@
 <?php
 
-$db = new PDO("mysql:host=localhost;dbname=osureplay_3xij", "osureplay_3xij", "starchixx");
+$db = new PDO("mysql:host=localhost;dbname=osureplay_3xij", "<dbName>", "<pass>");
 
 if (isset($_SESSION['auth']) && $_SESSION['auth'] == 1)
 {
