@@ -29,5 +29,5 @@ file soon.
 
 ## Installation
 
-* Replace <dbName> and <password>
-* Replace <osu!ApiKey> with your API key here : https://osu.ppy.sh/p/api
+* Replace `<dbName>` and `<password>`
+* Replace `<osu!ApiKey>` with your API key here : https://osu.ppy.sh/p/api
