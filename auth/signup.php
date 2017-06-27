@@ -6,7 +6,7 @@ if (isset($_POST['signup']))
     if (isset($_POST['username'], $_POST['password'], $_POST['c_password']))
     { //Si tous les champs sont remplis
 
-        require 'libs/db.php';
+        require '../libs/db.php';
         $username = htmlspecialchars($_POST['username']);
         $password = sha1($_POST['password']);
         $c_password = sha1($_POST['c_password']);
@@ -86,7 +86,7 @@ if (isset($_POST['signup']))
     </head>
     <body>
 
-        <?php require 'templates/header.php'; ?>
+        <?php require '../templates/header.php'; ?>
 
 
         <main>
@@ -134,6 +134,6 @@ if (isset($_POST['signup']))
 
         </main>
 
-        <?php require 'templates/footer.php'; ?>
+        <?php require '../templates/footer.php'; ?>
     </body>
 </html>

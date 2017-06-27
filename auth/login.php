@@ -6,7 +6,7 @@ if (isset($_POST['login']))
     if (isset($_POST['username'], $_POST['password']))
     { //Si les champs sont remplis
 
-        require 'libs/db.php';
+        require '../libs/db.php';
         $username = htmlspecialchars($_POST['username']);
         $password = sha1($_POST['password']);
 
@@ -48,7 +48,7 @@ if (isset($_POST['login']))
     </head>
     <body>
 
-        <?php require 'templates/header.php'; ?>
+        <?php require '../templates/header.php'; ?>
 
 
         <main>
@@ -88,6 +88,6 @@ if (isset($_POST['login']))
 
         </main>
 
-        <?php require 'templates/footer.php'; ?>
+        <?php require '../templates/footer.php'; ?>
     </body>
 </html>

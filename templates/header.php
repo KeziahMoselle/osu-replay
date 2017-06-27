@@ -23,7 +23,7 @@
                     <?php endif; ?>
                 </span>
               <?php else: ?>
-                <img class="circle" src="assets/css/account_circle.png">
+                <img class="circle" src="../assets/css/account_circle.png">
                 <span class="white-text name">Welcome !</span>
                 <span class="white-text email">Please log in.</span>
               <?php endif; ?>
