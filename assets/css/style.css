@@ -1,0 +1,165 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: #D8D8D8;
+  }
+
+main {
+    flex: 1 0 auto;
+}
+
+@media (min-width: 993px) {
+    .nav-wrapper {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+  nav a.button-collapse {
+    display: block;
+  }
+}
+
+
+a.brand-logo {
+    font-weight: 300;
+}
+
+nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
+    margin-right: 0;
+}
+
+div.background {
+    background-color: #3C3C3C;
+}
+
+.side-nav .userView {
+    margin-bottom: 0;
+}
+
+.card .card-title {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.card .card-content {
+    padding: 12px;
+    border-radius: 0 0 2px 2px;
+}
+
+.card .card-image .card-title {
+    color: #fff;
+    height: 100%;
+    width: 100%;
+}
+
+.card .card-image img {
+    height: 100px;
+    width: 100%;
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+    -moz-filter: brightness(50%);
+    -o-filter: brightness(50%);
+    -ms-filter: brightness(50%);
+}
+
+.floating-left {
+    position: absolute;
+    left: 24px;
+    bottom: -20px;
+}
+
+.card-panel a {
+    color: #673ab7;
+}
+.card-panel a:hover {
+    text-decoration: underline;
+}
+
+img.mods {
+    max-width: 50px;
+    height: auto;
+}
+
+footer a {
+    color: #FFF;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+footer.page-footer {
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 1.46rem 0 1.168rem 0;
+    font-weight: 300;
+}
+
+h1 {font-size: 3rem;}
+h2 {font-size: 2.5rem;}
+h3 {font-size: 2rem;}
+
+
+/* Search Field */
+
+input[type=search] {
+    margin-bottom: 0;
+}
+.input-field input[type=search]:focus {
+  background-color: #424242;
+  border: 0;
+  box-shadow: none;
+  color: #FFF;
+}
+
+.input-field .prefix.active {
+  color: #5e35b1;
+}
+
+.input-field input[type=search]:focus + label i,
+.input-field input[type=search]:focus ~ .mdi-navigation-close,
+.input-field input[type=search]:focus ~ .material-icons {
+  color: #FFF;
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]),
+input[type=datetime]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #5e35b1;
+  box-shadow: 0 1px 0 0 #5e35b1;
+}
+
+input:not([type]):focus:not([readonly]) + label,
+input[type=text]:focus:not([readonly]) + label,
+input[type=password]:focus:not([readonly]) + label,
+input[type=email]:focus:not([readonly]) + label,
+input[type=url]:focus:not([readonly]) + label,
+input[type=time]:focus:not([readonly]) + label,
+input[type=date]:focus:not([readonly]) + label,
+input[type=datetime]:focus:not([readonly]) + label,
+input[type=datetime-local]:focus:not([readonly]) + label,
+input[type=tel]:focus:not([readonly]) + label,
+input[type=number]:focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #5e35b1;
+}
+
+.switch label input[type=checkbox]:checked+.lever:after {
+    background-color: #7c4dff ;
+    left: 24px;
+}
+.switch label input[type=checkbox]:checked+.lever {
+    background-color: #b39ddb ;
+}
