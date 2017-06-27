@@ -2,6 +2,7 @@
 
 __The cloud for replays__
 
+You can share your replays or just save them privately.
 This is a project I had the idea to do in order to deepen my knowledge, I thought it might be useful to some players.
 
 ## Features
