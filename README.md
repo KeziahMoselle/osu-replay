@@ -1,5 +1,21 @@
-# osu!replay (Temporary name)
+# osu-no-name
 
 __The cloud for replays__
 
-Describe the project here.
+This is a project I had the idea to do in order to deepen my knowledge, I thought it might be useful to some players.
+
+## Features
+
+* Sign up / Log in
+* Upload a replay
+* Public or Private
+* Manage your replays (View all your replays, delete them)
+
+## Features i want to implement
+
+* Edit a replay
+* Add Favorites
+* Add Download count
+* Add Leaderboard
+* Add a Youtube link
+* Add some cool badges
