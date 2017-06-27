@@ -2,3 +2,5 @@
 .ftpconfig
 libs/db.php
 libs/osu_api.php
+libs/db.php
+libs/osu_api.php
