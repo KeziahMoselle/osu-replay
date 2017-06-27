@@ -7,8 +7,8 @@
             <?php if($_SESSION['auth'] == 1): ?>
                 <li><a class="modal-trigger btn waves-effect waves deep-purple accent-2" href="/upload.php"><i class="material-icons">file_upload</i></a></li>
             <?php else: ?>
-                <li><a href="/login.php">Login</a></li>
-                <li><a class="btn waves-effect waves white black-text" href="/signup.php">Sign up</a></li>
+                <li><a href="/auth/login.php">Login</a></li>
+                <li><a class="btn waves-effect waves white black-text" href="/auth/signup.php">Sign up</a></li>
             <?php endif; ?>
           </ul>
           <ul id="sidenav" class="side-nav">
@@ -39,8 +39,8 @@
                 <li><a class="waves-effect" href="/about.php"><i class="material-icons">subject</i>About</a></li>
             <?php else: ?>
                 <li><a class="subheader">Member area</a></li>
-                <li><a class="waves-effect" href="/login.php"><i class="material-icons">account_circle</i>Log in</a></li>
-                <li><a class="waves-effect" href="/signup.php"><i class="material-icons">add_circle</i>Sign up</a></li>
+                <li><a class="waves-effect" href="/auth/login.php"><i class="material-icons">account_circle</i>Log in</a></li>
+                <li><a class="waves-effect" href="/auth/signup.php"><i class="material-icons">add_circle</i>Sign up</a></li>
                 <li><div class="divider"></div></li>
                 <li><a class="subheader">Links</a></li>
                 <li><a class="waves-effect" href="/index.php"><i class="material-icons">view_agenda</i>Explore</a></li>
