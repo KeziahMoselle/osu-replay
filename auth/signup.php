@@ -47,7 +47,7 @@ if (isset($_POST['signup']))
                         $_SESSION['username'] = $user['username'];
                         $_SESSION['token'] = mt_rand();
                         $_SESSION['auth'] = 1;
-                        header('Location: index.php');
+                        header('Location: ../index.php');
                         die();
                     }
                     else
