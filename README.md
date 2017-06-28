@@ -10,11 +10,10 @@ This is a project I had the idea to do in order to deepen my knowledge, I though
 * Sign up / Log in
 * Upload a replay
 * Public or Private
-* Manage your replays (View all your replays, delete them)
+* Manage your replays (View public/private,delete or edit them)
 
 ## Features i want to implement
 
-* Edit a replay
 * Add Favorites
 * Add Download count
 * Add Leaderboard
