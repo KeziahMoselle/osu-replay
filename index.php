@@ -52,9 +52,10 @@ $replays->execute(array("public"));
                         <div class="col s12 m6 l4">
                           <div class="card grey lighten-3">
                               <div class="card-image">
+                                <div class="dl_count"><span><?=$replay['dl_count']?></span><i class="material-icons">file_download</i></div>
                                 <img src="https://assets.ppy.sh//beatmaps/<?=$replay["beatmapset_id"]?>/covers/card.jpg">
                                 <span class="card-title"><?=$replay["title"]?><br/><?=$replay["artist"]?> by <?=$replay["creator"]?></span>
-                                <a href="uploads/<?=$replay['replay_url']?>" class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2"><i class="material-icons">play_for_work</i></a>
+                                <a href="libs/download.php?replay_url=<?=$replay['replay_url']?>" class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2"><i class="material-icons">play_for_work</i></a>
                               </div>
                               <div class="card-content center-align">
                                 <p>
