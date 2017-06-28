@@ -1,6 +1,6 @@
 <?php
 
-$key = "8b6c492b494a60a108282f056b8623df953ac3fb";
+$key = "<osu!ApiKey>";
 
 // Beatmap
 function get_beatmaps($key,$beatmap_id)
