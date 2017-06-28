@@ -78,8 +78,8 @@ if (isset($_POST['upload']))
                             $fileDestination = 'uploads/'.$fileNameNew;
                             move_uploaded_file($fileTmpName, $fileDestination);
                             // Insert DB
-                            $newReplay = $db->prepare("INSERT INTO replays(visibility,replay_url,artist,title,version,creator,mode,difficultyrating,beatmap_id,beatmapset_id,player,player_rank,country,player_id,uploader) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-                            $newReplay->execute(array($visibility,$fileNameNew,$artist,$title,$version,$creator,$mode,$difficultyrating,$beatmap_id,$beatmapset_id,$player,$player_rank,$country,$player_id,$uploader));
+                            $newReplay = $db->prepare("INSERT INTO replays(visibility,replay_url,artist,title,version,creator,mode,difficultyrating,beatmap_id,beatmap_url,beatmapset_id,player,player_rank,country,player_id,player_url,uploader) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                            $newReplay->execute(array($visibility,$fileNameNew,$artist,$title,$version,$creator,$mode,$difficultyrating,$beatmap_id,$beatmap_url,$beatmapset_id,$player,$player_rank,$country,$player_id,$player_url,$uploader));
 
                             $notif = "Replay uploaded.";
                         }
@@ -153,8 +153,8 @@ if (isset($_POST['upload']))
                             <h1 class="center-align">Upload</h1>
                             <form class="row" action="upload.php?token=<?=$_SESSION['token']?>" method="post" enctype="multipart/form-data">
                                 <div class="input-field col s12 l6">
-                                  <input name="beatmap_url" id="beatmap_id" type="text" placeholder="https://osu.ppy.sh/b/00000">
-                                  <label for="beatmap_id">Beatmap ID</label>
+                                  <input name="beatmap_url" id="beatmap_url" type="text" placeholder="https://osu.ppy.sh/b/00000">
+                                  <label for="beatmap_url">Beatmap ID</label>
                                 </div>
                                 <div class="input-field col s12 l6">
                                   <input name="player_url" id="player" type="text" placeholder="https://osu.ppy.sh/u/00000">
