@@ -11,11 +11,11 @@ This is a project I had the idea to do in order to deepen my knowledge, I though
 * Upload a replay
 * Public or Private
 * Manage your replays (View public/private,delete or edit them)
+* Download counter
 
 ## Features i want to implement
 
 * Add Favorites
-* Add Download count
 * Add Leaderboard
 * Add a Youtube link
 * Add some cool badges
