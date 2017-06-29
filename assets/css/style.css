@@ -39,6 +39,16 @@ div.background {
     margin-bottom: 0;
 }
 
+.card .card-banner {
+  width: 100%;
+  height: auto;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+.card .card-banner h1 {
+  margin: 0;
+  color: #FFF;
+}
 .card .card-title {
     font-size: 16px;
     font-weight: 300;

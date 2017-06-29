@@ -5,7 +5,10 @@
           <a href="#" data-activates="sidenav" class="button-collapse right"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <?php if($_SESSION['auth'] == 1): ?>
+                <li><a href="/upload.php"><i class="material-icons">file_upload</i></a></li>
+                <!--
                 <li><a class="btn waves-effect waves deep-purple accent-2" href="/upload.php"><i class="material-icons">file_upload</i></a></li>
+                -->
             <?php else: ?>
                 <li><a href="/auth/login.php">Login</a></li>
                 <li><a class="btn waves-effect waves white black-text" href="/auth/signup.php">Sign up</a></li>
