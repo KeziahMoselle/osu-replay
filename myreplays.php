@@ -18,6 +18,7 @@ if (isset($_GET['edit'],$_GET['token']) AND $_GET['token'] == $_SESSION['token']
         // POST DATA
         $beatmap_url = htmlspecialchars($_POST['beatmap_url']);
         $player_username = htmlspecialchars($_POST['player_username']);
+        $youtube_url = htmlspecialchars($_POST['youtube_url']);
         if (isset($_POST['visibility']))
         {
             $visibility = "private";
@@ -52,18 +53,20 @@ if (isset($_GET['edit'],$_GET['token']) AND $_GET['token'] == $_SESSION['token']
         $player_url = 'https://osu.ppy.sh/u/'.$player_id;
         $player_rank = $get_user[0]["pp_rank"];
         $country = $get_user[0]["country"];
+
         // Infos
         $uploader = $_SESSION['username'];
 
         // UPDATE
-        $update = $db->prepare('UPDATE replays SET visibility=?,artist=?,title=?,version=?,creator=?,mode=?,difficultyrating=?,beatmap_id=?,beatmap_url=?,beatmapset_id=?,player=?,player_rank=?,country=?,player_id=?,player_url=?,uploader=? WHERE id=?');
-        $update->execute(array($visibility, $artist, $title, $version, $creator, $mode, $difficultyrating, $beatmap_id, $beatmap_url, $beatmapset_id, $player, $player_rank, $country, $player_id, $player_url, $uploader, $id));
+        $update = $db->prepare('UPDATE replays SET visibility=?,artist=?,title=?,version=?,creator=?,mode=?,difficultyrating=?,beatmap_id=?,beatmap_url=?,beatmapset_id=?,player=?,player_rank=?,country=?,player_id=?,player_url=?,uploader=?, youtube_url=? WHERE id=?');
+        $update->execute(array($visibility, $artist, $title, $version, $creator, $mode, $difficultyrating, $beatmap_id, $beatmap_url, $beatmapset_id, $player, $player_rank, $country, $player_id, $player_url, $uploader, $youtube_url,$id));
         $notif = "Replay updated";
         // REFRESH DATA
         //$req = $db->prepare('SELECT * FROM replays WHERE id = ?');
         //$req->execute(array($id));
         //$replay = $req->fetch();
         header('Location: myreplays.php');
+
     }
 
 }
@@ -136,7 +139,11 @@ else
                                   <input name="player_username" id="player" type="text" placeholder="https://osu.ppy.sh/u/00000" value="<?=$replay['player']?>">
                                   <label for="player">Player</label>
                                 </div>
-                                <div class="center">
+                                <div class="input-field col s12 l6 offset-l3">
+                                  <input name="youtube_url" id="youtube_url" type="text" placeholder="https://www.youtube.com/watch?v=abcdef0123">
+                                  <label for="youtube_url">Youtube URL</label>
+                                </div>
+                                <div class="center col s12">
                                     <div class="switch">
                                         <label>
                                             Public
