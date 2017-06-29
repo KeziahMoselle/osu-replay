@@ -18,6 +18,7 @@ This is a project I had the idea to do in order to deepen my knowledge, I though
 * Add a Youtube link
 * Add Favorites
 * Add Leaderboard
+* Add Pagination
 * Add search bar
 * Add some cool badges
 
