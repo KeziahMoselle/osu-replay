@@ -10,7 +10,7 @@ if (isset($_POST['upload']))
     {
         if (isset($_POST['beatmap_url']))
         {
-            if (isset($_POST['player_url']))
+            if (isset($_POST['player_username']))
             {
                 if (isset($_POST['visibility']))
                 {
@@ -38,11 +38,11 @@ if (isset($_POST['upload']))
                 $beatmapset_id = $beatmap[0]["beatmapset_id"];
 
                 // Player
-                $player_url = htmlspecialchars($_POST['player_url']); // POST DATA
-                preg_match('^https:\/\/osu\.ppy\.sh\/u\/(\d*)^', $player_url, $matches); // REGEX
-                $player_id = $matches[1]; //FETCH ID
-                $get_user = get_user($key,$player_id); // FETCH USER INFO
+                $player_username = htmlspecialchars($_POST['player_username']); // POST DATA
+                $get_user = get_user($key,$player_username); // FETCH USER INFO
                 $player = $get_user[0]["username"];
+                $player_id = $get_user[0]["user_id"];
+                $player_url = 'https://osu.ppy.sh/u/'.$player_id;
                 $player_rank = $get_user[0]["pp_rank"];
                 $country = $get_user[0]["country"];
                 // Infos
@@ -154,11 +154,11 @@ if (isset($_POST['upload']))
                             <form class="row" action="upload.php?token=<?=$_SESSION['token']?>" method="post" enctype="multipart/form-data">
                                 <div class="input-field col s12 l6">
                                   <input name="beatmap_url" id="beatmap_url" type="text" placeholder="https://osu.ppy.sh/b/00000">
-                                  <label for="beatmap_url">Beatmap ID</label>
+                                  <label for="beatmap_url">Beatmap URL</label>
                                 </div>
                                 <div class="input-field col s12 l6">
-                                  <input name="player_url" id="player" type="text" placeholder="https://osu.ppy.sh/u/00000">
-                                  <label for="player">Player</label>
+                                  <input name="player_username" id="player" type="text" placeholder="Abcdef">
+                                  <label for="player">Player username</label>
                                 </div>
                                 <div class="file-field input-field col s12">
                                   <div class="btn waves-effect waves-light deep-purple accent-2">
