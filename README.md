@@ -15,9 +15,10 @@ This is a project I had the idea to do in order to deepen my knowledge, I though
 
 ## Features i want to implement
 
+* Add a Youtube link
 * Add Favorites
 * Add Leaderboard
-* Add a Youtube link
+* Add search bar
 * Add some cool badges
 
 ## Problems encountered
