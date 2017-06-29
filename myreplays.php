@@ -17,7 +17,7 @@ if (isset($_GET['edit'],$_GET['token']) AND $_GET['token'] == $_SESSION['token']
     {
         // POST DATA
         $beatmap_url = htmlspecialchars($_POST['beatmap_url']);
-        $player_url = htmlspecialchars($_POST['player_url']);
+        $player_username = htmlspecialchars($_POST['player_username']);
         if (isset($_POST['visibility']))
         {
             $visibility = "private";
@@ -45,11 +45,11 @@ if (isset($_GET['edit'],$_GET['token']) AND $_GET['token'] == $_SESSION['token']
         $beatmapset_id = $beatmap[0]["beatmapset_id"];
 
         // Player
-        $player_url = htmlspecialchars($_POST['player_url']); // POST DATA
-        preg_match('^https:\/\/osu\.ppy\.sh\/u\/(\d*)^', $player_url, $matches); // REGEX
-        $player_id = $matches[1]; //FETCH ID
-        $get_user = get_user($key,$player_id); // FETCH USER INFO
+        $player_username = htmlspecialchars($_POST['player_username']); // POST DATA
+        $get_user = get_user($key,$player_username); // FETCH USER INFO
         $player = $get_user[0]["username"];
+        $player_id = $get_user[0]["user_id"];
+        $player_url = 'https://osu.ppy.sh/u/'.$player_id;
         $player_rank = $get_user[0]["pp_rank"];
         $country = $get_user[0]["country"];
         // Infos
@@ -59,6 +59,11 @@ if (isset($_GET['edit'],$_GET['token']) AND $_GET['token'] == $_SESSION['token']
         $update = $db->prepare('UPDATE replays SET visibility=?,artist=?,title=?,version=?,creator=?,mode=?,difficultyrating=?,beatmap_id=?,beatmap_url=?,beatmapset_id=?,player=?,player_rank=?,country=?,player_id=?,player_url=?,uploader=? WHERE id=?');
         $update->execute(array($visibility, $artist, $title, $version, $creator, $mode, $difficultyrating, $beatmap_id, $beatmap_url, $beatmapset_id, $player, $player_rank, $country, $player_id, $player_url, $uploader, $id));
         $notif = "Replay updated";
+        // REFRESH DATA
+        $id = htmlspecialchars($_GET['edit']);
+        $req = $db->prepare('SELECT * FROM replays WHERE id = ?');
+        $req->execute(array($id));
+        $replay = $req->fetch();
     }
 
 }
@@ -97,7 +102,13 @@ else
                         }
                         else
                         {
-                          echo 'Editing : ' .$replay['replay_url'];
+                          if (isset($notif))
+                          {
+                            echo $notif;
+                          }
+                          else {
+                            echo 'Editing : ' .$replay['replay_url'];
+                          }
                         }
                        ?>
 
@@ -113,12 +124,6 @@ else
               <?php if (isset($_GET['edit'])): ?>
                 <div class="col s12 m10 offset-m1 l6 offset-l3">
 
-                  <?php if(isset($notif)): ?>
-                      <div class="card-panel white center-align">
-                          <span class="black-text"><?= $notif ?></span>
-                      </div>
-                  <?php endif ?>
-
                     <div class="card white">
                         <div class="card-content">
                             <h1 class="center-align">Edit a replay</h1>
@@ -128,7 +133,7 @@ else
                                   <label for="beatmap_url">Beatmap ID</label>
                                 </div>
                                 <div class="input-field col s12 l6">
-                                  <input name="player_url" id="player" type="text" placeholder="https://osu.ppy.sh/u/00000" value="<?=$replay['player_url']?>">
+                                  <input name="player_username" id="player" type="text" placeholder="https://osu.ppy.sh/u/00000" value="<?=$replay['player']?>">
                                   <label for="player">Player</label>
                                 </div>
                                 <div class="center">

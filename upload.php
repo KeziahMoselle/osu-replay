@@ -102,16 +102,12 @@ if (isset($_POST['upload']))
             }
             else
             {
-                $notif = "[Error] Player URL is empty.";
+                $notif = "[Error] Player username is empty.";
             }
         }
         else
         {
-            $notif = "[Error] Beatmap URL is empty.<br/>";
-            if (isset($_POST['player_url']))
-            {
-                $notif .= "Player URL is empty.";
-            }
+            $notif = "[Error] Beatmap URL is empty.";
         }
     }
     else
@@ -163,10 +159,10 @@ if (isset($_POST['upload']))
                                 <div class="file-field input-field col s12">
                                   <div class="btn waves-effect waves-light deep-purple accent-2">
                                     <span>File</span>
-                                    <input name="file" type="file" required>
+                                    <input name="file" type="file">
                                   </div>
                                   <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Upload the .osr file" required>
+                                    <input class="file-path validate" type="text" placeholder="Upload the .osr file">
                                   </div>
                                 </div>
                                 <div class="center">

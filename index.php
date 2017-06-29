@@ -4,7 +4,7 @@ session_start();
 // FETCH REPLAY LIST
 require 'libs/db.php';
 
-$replays = $db->prepare('SELECT * FROM replays WHERE visibility = ?');
+$replays = $db->prepare('SELECT * FROM replays WHERE visibility = ? ORDER BY id DESC');
 $replays->execute(array("public"));
 
 ?>
@@ -55,13 +55,13 @@ $replays->execute(array("public"));
                                 <div class="dl_count"><span><?=$replay['dl_count']?></span><i class="material-icons">file_download</i></div>
                                 <img src="https://assets.ppy.sh//beatmaps/<?=$replay["beatmapset_id"]?>/covers/card.jpg">
                                 <span class="card-title"><?=$replay["title"]?><br/><?=$replay["artist"]?> by <?=$replay["creator"]?></span>
-                                <a href="libs/download.php?replay_url=<?=$replay['replay_url']?>" class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2"><i class="material-icons">play_for_work</i></a>
+                                <a href="libs/download.php?id=<?=$replay['id']?>" class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2"><i class="material-icons">play_for_work</i></a>
                               </div>
                               <div class="card-content center-align">
                                 <p>
-                                  <?=$replay["player"]?> (#<?=$replay['player_rank']?>)
+                                  Play by <?=$replay["player"]?> (#<?=$replay['player_rank']?>)
                                   <br/>
-                                  [<?=$replay["version"]?>] (<?=$replay["difficultyrating"]?>*)
+                                  On [<?=$replay["version"]?>] (<?=$replay["difficultyrating"]?>*)
                                   <br/>
                                 </p>
                               </div>
