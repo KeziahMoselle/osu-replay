@@ -46,7 +46,7 @@ div.background {
 
 div.dl_count {
     position: absolute;
-    right: 12px;
+    right: 5px;
     top: 5px;
     z-index: 2;
     color: #FFF;

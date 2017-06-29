@@ -54,12 +54,12 @@ $replays->execute(array("public"));
                               <div class="card-image">
                                 <div class="dl_count"><span><?=$replay['dl_count']?></span><i class="material-icons">file_download</i></div>
                                 <img src="https://assets.ppy.sh//beatmaps/<?=$replay["beatmapset_id"]?>/covers/card.jpg">
-                                <span class="card-title"><?=$replay["title"]?><br/><?=$replay["artist"]?> by <?=$replay["creator"]?></span>
+                                <span class="card-title truncate"><?=$replay["title"]?><br/><?=$replay["artist"]?> by <?=$replay["creator"]?></span>
                                 <a href="libs/download.php?id=<?=$replay['id']?>" class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2"><i class="material-icons">play_for_work</i></a>
                               </div>
                               <div class="card-content center-align">
                                 <p>
-                                  Play by <?=$replay["player"]?> (#<?=$replay['player_rank']?>)
+                                  Played by <?=$replay["player"]?> (#<?=$replay['player_rank']?>)
                                   <br/>
                                   On [<?=$replay["version"]?>] (<?=$replay["difficultyrating"]?>*)
                                   <br/>

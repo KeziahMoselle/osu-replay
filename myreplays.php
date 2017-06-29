@@ -165,15 +165,15 @@ else
                               <div class="card grey lighten-3">
                                 <div class="card-image">
                                     <img src="https://assets.ppy.sh//beatmaps/<?=$replay["beatmapset_id"]?>/covers/card.jpg">
-                                    <span class="card-title"><?=$replay["title"]?><br/><?=$replay["artist"]?></span>
+                                    <span class="card-title truncate"><?=$replay["title"]?><br/><?=$replay["artist"]?></span>
                                     <a href="libs/delete_replay.php?id=<?=$replay['id']?>&fileName=<?=$replay['replay_url']?>&token=<?=$_SESSION['token']?>" class="btn-floating floating-left halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>
                                     <a href="uploads/<?=$replay['replay_url']?>" class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2"><i class="material-icons">play_for_work</i></a>
                                 </div>
                                 <div class="card-content center-align">
                                     <p>
-                                        <?=$replay["player"]?> (#<?=$replay['player_rank']?>)
+                                        Played by <?=$replay["player"]?> (#<?=$replay['player_rank']?>)
                                         <br/>
-                                        [<?=$replay["version"]?>] (<?=$replay["difficultyrating"]?>*)
+                                        On [<?=$replay["version"]?>] (<?=$replay["difficultyrating"]?>*)
                                         <br/>
                                         <a href="myreplays.php?edit=<?=$replay['id']?>&token=<?=$_SESSION['token']?>" class="btn waves-effect waves grey">Edit</a>
                                     </p>
