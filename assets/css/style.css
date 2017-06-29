@@ -181,3 +181,7 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 .switch label input[type=checkbox]:checked+.lever {
     background-color: #b39ddb ;
 }
+
+.pagination li.active {
+    background-color: #5e35b1;
+}

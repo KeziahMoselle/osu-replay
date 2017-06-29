@@ -38,6 +38,18 @@ $replays->execute(array("public"));
 
             <div class="row">
 
+              <div class="col s12 center">
+                <ul class="pagination">
+                  <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                  <li class="active"><a href="#!">1</a></li>
+                  <li class="waves-effect"><a href="#!">2</a></li>
+                  <li class="waves-effect"><a href="#!">3</a></li>
+                  <li class="waves-effect"><a href="#!">4</a></li>
+                  <li class="waves-effect"><a href="#!">5</a></li>
+                  <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                </ul>
+              </div>
+
                 <?php if($replays->rowCount() == 0): ?>
                     <div class="col s12 m10 offset-m1 l6 offset-l3">
                         <div class="card-panel white center-align">
