@@ -10,8 +10,8 @@
                 <li><a class="btn waves-effect waves deep-purple accent-2" href="/upload.php"><i class="material-icons">file_upload</i></a></li>
                 -->
             <?php else: ?>
-                <li><a href="/auth/login.php">Login</a></li>
-                <li><a class="btn waves-effect waves white black-text" href="/auth/signup.php">Sign up</a></li>
+                <li><a href="/auth/signup.php">Sign up</a></li>
+                <li><a class="btn waves-effect waves white black-text" href="/auth/login.php">Login</a></li>
             <?php endif; ?>
           </ul>
           <ul id="sidenav" class="side-nav">
