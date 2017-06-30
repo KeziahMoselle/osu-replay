@@ -12,14 +12,14 @@ This is a project I had the idea to do in order to deepen my knowledge, I though
 * Public or Private
 * Manage your replays (View public/private,delete or edit them)
 * Download counter
+* Add a Youtube link (In edit)
 
 ## Features i want to implement
 
-* Add a Youtube link
-* Add Favorites
-* Add Leaderboard
 * Add Pagination
 * Add search bar
+* Add Favorites
+* Add Leaderboard
 * Add some cool badges
 
 ## Problems encountered
