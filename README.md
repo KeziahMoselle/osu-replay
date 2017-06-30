@@ -16,10 +16,10 @@ This is a project I had the idea to do in order to deepen my knowledge, I though
 
 ## Features i want to implement
 
-* Add Favorites
-* Add Leaderboard
 * Add Pagination
 * Add search bar
+* Add Favorites
+* Add Leaderboard
 * Add some cool badges
 
 ## Problems encountered
