@@ -25,8 +25,3 @@ You can share your replays or just save them privately.
 
 * I can't fetch replay data (Like the name, mods etc..) So i add an input "beatmap_id" to fetch these data.
 I can't use the `api/get_scores` because i can't fetch the data of an unranked beatmap.
-
-## Installation
-
-* Replace `<dbName>` and `<password>` in `/libs/db.php`
-* Replace `<osu!ApiKey>` with your API key here : https://osu.ppy.sh/p/api in `/libs/osu_api.php`
