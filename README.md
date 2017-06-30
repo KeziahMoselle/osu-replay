@@ -1,4 +1,4 @@
-# osu-no-name
+# osu-collection
 
 __The cloud for replays__
 
