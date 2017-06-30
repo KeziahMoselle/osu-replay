@@ -140,7 +140,7 @@ else
                                   <label for="player">Player</label>
                                 </div>
                                 <div class="input-field col s12 l6 offset-l3">
-                                  <input name="youtube_url" id="youtube_url" type="text" placeholder="https://www.youtube.com/watch?v=abcdef0123">
+                                  <input name="youtube_url" id="youtube_url" type="text" placeholder="https://www.youtube.com/watch?v=abcdef0123" value="<?=$replay['youtube_url']?>">
                                   <label for="youtube_url">Youtube URL</label>
                                 </div>
                                 <div class="center col s12">

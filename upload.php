@@ -57,21 +57,23 @@ if (isset($_POST['upload']))
           {
               if ($fileSize < 10000000)
               {
-                  require 'libs/db.php';
-                  $req = $db->prepare('SELECT replays FROM users WHERE id=?');
-                  $req->execute(array($_SESSION['id']));
-                  $results = $req->fetch();
-                  $ReplayCounter = $results["replays"] + 1;
-                  $updateReplayCounter = $db->prepare("UPDATE users SET replays=? WHERE id=?");
-                  $updateReplayCounter->execute(array($ReplayCounter,$_SESSION['id']));
-                  $fileNameNew = "$player : $artist - $title [$version] ($uploader($ReplayCounter)).$fileActualExt";
-                  $fileDestination = 'uploads/'.$fileNameNew;
-                  move_uploaded_file($fileTmpName, $fileDestination);
+                  // FILE UPLOAD
+                    $fileNameNew = "$player : $artist - $title [$version] ($uploader($ReplayCounter)).$fileActualExt";
+                    $fileDestination = 'uploads/'.$fileNameNew;
+                    move_uploaded_file($fileTmpName, $fileDestination);
 
                   // Insert DB
-                  $newReplay = $db->prepare("INSERT INTO replays(visibility,replay_url,artist,title,version,creator,mode,difficultyrating,beatmap_id,beatmap_url,beatmapset_id,player,player_rank,country,player_id,player_url,uploader,youtube_url) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-                  $newReplay->execute(array($visibility,$fileNameNew,$artist,$title,$version,$creator,$mode,$difficultyrating,$beatmap_id,$beatmap_url,$beatmapset_id,$player,$player_rank,$country,$player_id,$player_url,$uploader,$youtube_url));
-                  $notif = "Replay uploaded.";
+                    $newReplay = $db->prepare("INSERT INTO replays(visibility,replay_url,artist,title,version,creator,mode,difficultyrating,beatmap_id,beatmap_url,beatmapset_id,player,player_rank,country,player_id,player_url,uploader) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    $newReplay->execute(array($visibility,$fileNameNew,$artist,$title,$version,$creator,$mode,$difficultyrating,$beatmap_id,$beatmap_url,$beatmapset_id,$player,$player_rank,$country,$player_id,$player_url,$uploader));
+                    $notif = "Replay uploaded.";
+
+                  // UPDATE COUNTER
+                    $req = $db->prepare('SELECT replays FROM users WHERE id=?');
+                    $req->execute(array($_SESSION['id']));
+                    $results = $req->fetch();
+                    $ReplayCounter = $results["replays"] + 1;
+                    $updateReplayCounter = $db->prepare("UPDATE users SET replays=? WHERE id=?");
+                    $updateReplayCounter->execute(array($ReplayCounter,$_SESSION['id']));
               }
               else
               {
@@ -91,7 +93,7 @@ if (isset($_POST['upload']))
   }
   else
   {
-    die('Input missing');
+    $notif = "Input missing";
   }
 }
 
@@ -135,11 +137,11 @@ if (isset($_POST['upload']))
 
                             <form class="row" action="upload.php" method="post" enctype="multipart/form-data">
                                 <div class="input-field col s12 l6 offset-l3">
-                                  <input name="beatmap_url" id="beatmap_url" type="text" placeholder="https://osu.ppy.sh/b/00000" value="https://osu.ppy.sh/b/787430?m=0" required>
+                                  <input name="beatmap_url" id="beatmap_url" type="text" placeholder="https://osu.ppy.sh/b/00000" required>
                                   <label for="beatmap_url">Beatmap URL</label>
                                 </div>
                                 <div class="input-field col s12 l6 offset-l3">
-                                  <input name="player_username" id="player_username" type="text" placeholder="Abcdef" value="Nemesis-" required>
+                                  <input name="player_username" id="player_username" type="text" placeholder="Abcdef" required>
                                   <label for="player_username">Player username</label>
                                 </div>
                                 <div class="file-field input-field col s12 m11 offset-m1">
@@ -160,10 +162,6 @@ if (isset($_POST['upload']))
                                             Private
                                         </label>
                                     </div>
-                                </div>
-                                <div class="input-field col s12 l6 offset-l3">
-                                  <input name="youtube_url" id="youtube_url" type="text" placeholder="https://www.youtube.com/watch?v=abcdef0123">
-                                  <label for="youtube_url">Youtube URL</label>
                                 </div>
                         </div>
                         <div class="card-action center">
