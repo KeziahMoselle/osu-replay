@@ -9,7 +9,7 @@ You can share your replays or just save them privately.
 * Sign up / Log in
 * Upload a replay (Need a rewriting)
 * Public or Private
-* Manage your replays (View public/private,delete or edit them)
+* Manage your replays (View,Edit,Delete)
 * Download counter
 * Add a Youtube link (In edit)
 

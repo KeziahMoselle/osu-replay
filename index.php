@@ -1,9 +1,10 @@
 <?php
 session_start();
 
-// FETCH REPLAY LIST
 require 'libs/db.php';
 
+
+// FETCH REPLAY LIST
 $replays = $db->prepare('SELECT * FROM replays WHERE visibility = ? ORDER BY id DESC');
 $replays->execute(array("public"));
 
