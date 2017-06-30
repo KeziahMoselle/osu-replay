@@ -87,6 +87,19 @@ if (isset($_POST['signup']))
     <body>
 
         <?php require '../templates/header.php'; ?>
+        <nav>
+            <div class="nav-wrapper grey darken-3">
+                <div class="col s12 center-align">
+                    <span class="white-text">
+                      <?php if(isset($notif)): ?>
+                        <?= $notif ?>
+                      <?php else: ?>
+                        Enter your real osu!username please. However you can't upload replays.
+                      <?php endif ?>
+                    </span>
+                </div>
+            </div>
+        </nav>
 
 
         <main>
@@ -95,15 +108,6 @@ if (isset($_POST['signup']))
 
                 <div class="col s12 m10 offset-m1 l6 offset-l3">
 
-                    <?php if(isset($notif)): ?>
-                        <div class="card-panel white center-align">
-                            <span class="black-text"><?= $notif ?></span>
-                        </div>
-                    <?php else: ?>
-                        <div class="card-panel white center-align">
-                            <span class="black-text">Enter your real osu!username please. However you can't upload replays.</span>
-                        </div>
-                    <?php endif ?>
 
                     <div class="card white">
                         <div class="card-content">

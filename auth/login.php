@@ -25,7 +25,7 @@ if (isset($_POST['login']))
         }
         else
         { //Si l'utilisateur n'existe pas
-            $notif = "User does not exist.";
+            $notif = "Username or password incorrect";
         }
     }
     else
@@ -49,6 +49,17 @@ if (isset($_POST['login']))
     <body>
 
         <?php require '../templates/header.php'; ?>
+        <nav>
+            <div class="nav-wrapper grey darken-3">
+                <div class="col s12 center-align">
+                    <span class="white-text">
+                      <?php if (isset($notif)): ?>
+                        <?= $notif ?>
+                      <?php endif; ?>
+                    </span>
+                </div>
+            </div>
+        </nav>
 
 
         <main>
@@ -56,12 +67,6 @@ if (isset($_POST['login']))
             <div class="row">
 
                 <div class="col s12 m10 offset-m1 l6 offset-l3">
-
-                    <?php if(isset($notif)): ?>
-                        <div class="card-panel white center-align">
-                            <span class="black-text"><?= $notif ?></span>
-                        </div>
-                    <?php endif ?>
 
                     <div class="card white">
                         <div class="card-content">
