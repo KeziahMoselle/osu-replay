@@ -6,6 +6,8 @@
           <ul class="right hide-on-med-and-down">
             <?php if($_SESSION['auth'] == 1): ?>
                 <li><a href="/upload.php"><i class="material-icons">file_upload</i></a></li>
+                <li><a href="/myreplays.php"><i class="material-icons">folder</i></a></li>
+                <li><a href="/favorites.php"><i class="material-icons">favorite</i></a></li>
             <?php else: ?>
                 <li><a href="/auth/signup.php">Sign up</a></li>
                 <li><a class="btn waves-effect waves white black-text" href="/auth/login.php">Login</a></li>
