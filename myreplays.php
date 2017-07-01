@@ -62,9 +62,9 @@ if (isset($_GET['edit'],$_GET['token']) AND $_GET['token'] == $_SESSION['token']
         $update->execute(array($visibility, $artist, $title, $version, $creator, $mode, $difficultyrating, $beatmap_id, $beatmap_url, $beatmapset_id, $player, $player_rank, $country, $player_id, $player_url, $uploader, $youtube_url,$id));
         $notif = "Replay updated";
         // REFRESH DATA
-        //$req = $db->prepare('SELECT * FROM replays WHERE id = ?');
-        //$req->execute(array($id));
-        //$replay = $req->fetch();
+        $req = $db->prepare('SELECT * FROM replays WHERE id = ?');
+        $req->execute(array($id));
+        $replay = $req->fetch();
         header('Location: myreplays.php');
 
     }
@@ -170,23 +170,21 @@ else
                         <?php while($replay = $replays->fetch()) { ?>
                             <div class="col s12 m6 l4">
                               <div class="card grey lighten-3">
-                                <div class="card-image">
+                                <div class="card-image waves-effect waves-block waves-light">
                                     <div class="dl_count"><span><?=$replay['dl_count']?></span><i class="material-icons">file_download</i></div>
-                                    <img src="https://assets.ppy.sh//beatmaps/<?=$replay["beatmapset_id"]?>/covers/card.jpg">
+                                    <img class="activator" src="https://assets.ppy.sh//beatmaps/<?=$replay["beatmapset_id"]?>/covers/card.jpg">
                                     <span class="card-title truncate"><?=$replay["title"]?><br/><?=$replay["artist"]?></span>
-                                    <a href="libs/delete_replay.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>" class="btn-floating floating-left halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>
-                                    <a href="uploads/<?=$replay['replay_url']?>" class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2"><i class="material-icons">play_for_work</i></a>
                                 </div>
                                 <div class="card-content center-align">
-                                    <p>
-                                        Played by <?=$replay["player"]?> (#<?=$replay['player_rank']?>)
-                                        <br/>
-                                        On [<?=$replay["version"]?>] (<?=$replay["difficultyrating"]?>*)
-                                        <br/>
-                                        <a href="myreplays.php?edit=<?=$replay['id']?>&token=<?=$_SESSION['token']?>" class="btn waves-effect waves grey">Edit</a>
-                                    </p>
+                                  <span class="card-title activator grey-text text-darken-4">Played by <?=$replay["player"]?> (#<?=$replay['player_rank']?>)<br/>On [<?=$replay["version"]?>] (<?=$replay["difficultyrating"]?>*)<i class="material-icons right">more_vert</i></span>
                                 </div>
+                                <div class="card-reveal">
+                                  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                                  <p><a href="myreplays.php?edit=<?=$replay['id']?>&token=<?=$_SESSION['token']?>" class="btn waves-effect waves grey">Edit</a></p>
+                                  <a href="libs/delete_replay.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>" class="btn-floating floating-left halfway-fab waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                                  <a href="libs/download.php?id=<?=$replay['id']?>" class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2"><i class="material-icons">play_for_work</i></a>
                                 </div>
+                              </div>
                             </div>
                         <?php } ?>
                         </div>
