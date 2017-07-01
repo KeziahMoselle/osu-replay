@@ -35,6 +35,7 @@
                 <li><a class="subheader">Member area</a></li>
                 <li><a class="waves-effect" href="/upload.php"><i class="material-icons">file_upload</i>Upload</a></li>
                 <li><a class="waves-effect" href="/myreplays.php"><i class="material-icons">folder</i>My replays</a></li>
+                <li><a class="waves-effect" href="/favorites.php"><i class="material-icons">favorite</i>Favorites</a></li>
                 <li><a class="waves-effect" href="/libs/logout.php?token=<?=$_SESSION['token']?>"><i class="material-icons">lock</i>Log out</a></li>
                 <li><div class="divider"></div></li>
                 <li><a class="subheader">Links</a></li>
