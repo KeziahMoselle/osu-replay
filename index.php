@@ -3,8 +3,6 @@ session_start();
 
 require 'libs/db.php';
 
-
-// FETCH REPLAY LIST
 $replays = $db->prepare('SELECT * FROM replays WHERE visibility = ? ORDER BY id DESC');
 $replays->execute(array("public"));
 
@@ -34,7 +32,6 @@ $replays->execute(array("public"));
             </div>
         </nav>
 
-
         <main>
 
             <div class="row">
@@ -51,52 +48,28 @@ $replays->execute(array("public"));
                 </ul>
               </div>
 
-                <?php if($replays->rowCount() == 0): ?>
-                    <div class="col s12 m10 offset-m1 l6 offset-l3">
-                        <div class="card-panel white center-align">
-                            <span class="black-text">No replay found.</span>
-                        </div>
-                    </div>
-                <?php endif ?>
+              <div class="col m10 offset-m1">
 
-                <div class="col m10 offset-m1">
-
-                    <?php while($replay = $replays->fetch()) { ?>
-                        <div class="col s12 m6 l4">
-                          <a href="#<?=$replay['id']?>">
-                            <div class="card grey lighten-3">
-                                <div class="card-image">
-                                  <div class="dl_count"><span><?=$replay['dl_count']?></span><i class="material-icons">file_download</i></div>
-                                  <img src="https://assets.ppy.sh//beatmaps/<?=$replay["beatmapset_id"]?>/covers/card.jpg">
-                                  <span class="card-title truncate"><?=$replay["title"]?><br/><?=$replay["artist"]?> by <?=$replay["creator"]?></span>
-                                  <a href="libs/download.php?id=<?=$replay['id']?>" class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2"><i class="material-icons">play_for_work</i></a>
-                                </div>
-                                <div class="card-content center-align">
-                                  <p>
-                                    Played by <?=$replay["player"]?> (#<?=$replay['player_rank']?>)
-                                    <br/>
-                                    On [<?=$replay["version"]?>] (<?=$replay["difficultyrating"]?>*)
-                                    <br/>
-                                  </p>
-                                </div>
-                              </div>
-                          </a>
-                        </div>
-                        <div id="<?=$replay['id']?>" class="modal">
-                          <div class="modal-content">
-                            <h4><?=$replay["title"]?> <?=$replay["artist"]?> by <?=$replay["creator"]?></h4>
-                            <p>
-                              Played by <?=$replay["player"]?> (#<?=$replay['player_rank']?>)
-                              <br/>
-                              On [<?=$replay["version"]?>] (<?=$replay["difficultyrating"]?>*)
-                              <br/>
-                            </p>
+                  <?php while($replay = $replays->fetch()) { ?>
+                      <div class="col s12 m6 l4">
+                        <div class="card grey lighten-3">
+                            <div class="card-image">
+                              <div class="dl_count"><span><?=$replay['dl_count']?></span><i class="material-icons">file_download</i></div>
+                              <img src="https://assets.ppy.sh//beatmaps/<?=$replay["beatmapset_id"]?>/covers/card.jpg">
+                              <span class="card-title truncate"><?=$replay["title"]?><br/><?=$replay["artist"]?> by <?=$replay["creator"]?></span>
+                              <a href="libs/download.php?id=<?=$replay['id']?>" class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2"><i class="material-icons">play_for_work</i></a>
+                            </div>
+                            <div class="card-content center-align">
+                              <p>
+                                Played by <?=$replay["player"]?> (#<?=$replay['player_rank']?>)
+                                <br/>
+                                On [<?=$replay["version"]?>] (<?=$replay["difficultyrating"]?>*)
+                                <br/>
+                              </p>
+                            </div>
                           </div>
-                          <div class="modal-footer">
-                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                          </div>
-                        </div>
-                    <?php } ?>
+                      </div>
+                  <?php } ?>
 
                 </div>
 
