@@ -117,7 +117,12 @@ if (isset($_POST['upload']))
             <div class="nav-wrapper grey darken-3">
                 <div class="col s12 center-align">
                     <span class="white-text">
-                      <?php if(isset($notif)){ echo $notif; } ?>
+                      <?php
+                        if (isset($notif))
+                        {
+                          echo $notif;
+                        }
+                      ?>
                     </span>
                 </div>
             </div>
