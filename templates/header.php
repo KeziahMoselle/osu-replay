@@ -30,8 +30,8 @@
             </div></li>
             <?php if($_SESSION['auth'] == 1): ?>
                 <li><a class="subheader">Community</a></li>
-                <li><a class="waves-effect" href="/index.php"><i class="material-icons">view_agenda</i>Explore</a></li>
-                <li><a class="waves-effect" href="/index.php"><i class="material-icons">view_agenda</i>Leaderboard</a></li>
+                <li><a class="waves-effect" href="/index.php"><i class="material-icons">search</i>Explore</a></li>
+                <li><a class="waves-effect" href="/leaderboard.php"><i class="material-icons">view_agenda</i>Leaderboard</a></li>
                 <li><a class="subheader">Member area</a></li>
                 <li><a class="waves-effect" href="/upload.php"><i class="material-icons">file_upload</i>Upload</a></li>
                 <li><a class="waves-effect" href="/myreplays.php"><i class="material-icons">folder</i>My replays</a></li>
