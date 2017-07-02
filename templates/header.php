@@ -6,7 +6,7 @@
           <ul class="right hide-on-med-and-down">
             <?php if($_SESSION['auth'] == 1): ?>
                 <li><a href="/upload.php"><i class="material-icons">file_upload</i></a></li>
-                <li><a href="/myreplays.php"><i class="material-icons">folder</i></a></li>
+                <li><a href="/my-replays.php"><i class="material-icons">folder</i></a></li>
                 <li><a href="/favorites.php"><i class="material-icons">favorite</i></a></li>
             <?php else: ?>
                 <li><a href="/auth/signup.php">Sign up</a></li>
@@ -36,7 +36,7 @@
                 <li><a class="waves-effect" href="/leaderboard.php"><i class="material-icons">view_agenda</i>Leaderboard</a></li>
                 <li><a class="subheader">Member area</a></li>
                 <li><a class="waves-effect" href="/upload.php"><i class="material-icons">file_upload</i>Upload</a></li>
-                <li><a class="waves-effect" href="/myreplays.php"><i class="material-icons">folder</i>My replays</a></li>
+                <li><a class="waves-effect" href="/my-replays.php"><i class="material-icons">folder</i>My replays</a></li>
                 <li><a class="waves-effect" href="/favorites.php"><i class="material-icons">favorite</i>Favorites</a></li>
                 <li><a class="waves-effect" href="/libs/logout.php?token=<?=$_SESSION['token']?>"><i class="material-icons">lock</i>Log out</a></li>
                 <li><div class="divider"></div></li>

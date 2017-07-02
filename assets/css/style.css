@@ -54,12 +54,18 @@ div.background {
     font-weight: 300;
 }
 
-div.dl_count {
+.card .card-content .card-title {
+    display: block;
+    line-height: 24px;
+    margin-bottom: 0;
+}
+
+.chip {
     position: absolute;
     right: 5px;
     top: 5px;
     z-index: 2;
-    color: #FFF;
+    margin: 0;
 }
 
 .card .card-content {

@@ -6,7 +6,6 @@ if ($token = $_SESSION['token'])
 {
     require 'db.php';
     $id = htmlspecialchars($_GET['id']);
-    $fileName = htmlspecialchars($_GET['fileName']);
     $path = '../uploads/'.$fileName;
     // Delete from DB
     $delete = "DELETE FROM replays WHERE id=$id";
