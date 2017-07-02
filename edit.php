@@ -117,6 +117,7 @@ else
                         </div>
                         <div class="card-action center">
                             <button name="edit" type="submit" class="btn waves-effect waves deep-purple accent-2">Edit</button>
+                            <br/>
                             <a href="libs/delete_replay.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>" class="btn waves-effect waves red">Delete</a>
                             </form>
                         </div>
