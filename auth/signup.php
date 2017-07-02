@@ -1,5 +1,7 @@
 <?php
 session_start();
+$title = "Sign up";
+$page = "auth/signup.php";
 
 if (isset($_POST['signup']))
 { //Si on soumet le formulaire
@@ -78,7 +80,7 @@ if (isset($_POST['signup']))
 <html>
     <head>
         <meta charset="utf-8">
-        <title>osu!replay - Sign up</title>
+        <title>osu!replay - <?=$title?></title>
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="/assets/css/materialize.min.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="/assets/css/style.css"  media="screen,projection"/>

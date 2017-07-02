@@ -1,5 +1,7 @@
 <?php
 session_start();
+$title = "Favorites";
+$page = "favorites.php";
 
 require 'libs/db.php';
 
@@ -8,7 +10,7 @@ require 'libs/db.php';
 <html>
     <head>
         <meta charset="utf-8">
-        <title>osu!replay - Favorites</title>
+        <title>osu!replay - <?=$title?></title>
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="/assets/css/materialize.min.css"  media="screen,projection"/>
         <link type="text/css" rel="stylesheet" href="/assets/css/style.css"  media="screen,projection"/>
