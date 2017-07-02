@@ -21,7 +21,17 @@ $replays->execute(array($_SESSION['username']));
     <body>
 
         <?php require 'templates/header.php'; ?>
-
+        <nav>
+            <div class="nav-wrapper grey darken-3">
+              <form action="index.php" method="GET">
+                <div class="input-field">
+                  <input id="search" type="search" placeholder="Search isn't available for the moment." required>
+                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                  <i class="material-icons">close</i>
+                </div>
+              </form>
+            </div>
+        </nav>
 
         <main>
 
@@ -41,7 +51,7 @@ $replays->execute(array($_SESSION['username']));
                                   <a href="edit.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>" class="btn-floating floating-left halfway-fab waves-effect waves-light grey"><i class="material-icons">mode_edit</i></a>
                                   <a href="libs/download.php?id=<?=$replay['id']?>" class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2"><i class="material-icons">play_for_work</i></a>
                               </div>
-                              <div class="card-content center-align">
+                              <div class="card-content center-align <?php if($replay['visibility'] == "private"){echo "private";}?>">
                                 <span class="card-title">
                                   Played by <?=$replay["player"]?> (#<?=$replay['player_rank']?>)
                                   <br/>

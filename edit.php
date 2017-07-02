@@ -26,7 +26,7 @@ if (isset($_GET['id'],$_GET['token']) AND $_GET['token'] == $_SESSION['token'])
     }
 
     // OSU API
-    require 'osu_api.php';
+    require 'libs/osu_api.php';
 
     // Beatmap
     $beatmap_url = htmlspecialchars($_POST['beatmap_url']); // POST DATA
@@ -57,18 +57,13 @@ if (isset($_GET['id'],$_GET['token']) AND $_GET['token'] == $_SESSION['token'])
     // UPDATE
     $update = $db->prepare('UPDATE replays SET visibility=?,artist=?,title=?,version=?,creator=?,mode=?,difficultyrating=?,beatmap_id=?,beatmap_url=?,beatmapset_id=?,player=?,player_rank=?,country=?,player_id=?,player_url=?,uploader=?, youtube_url=? WHERE id=?');
     $update->execute(array($visibility, $artist, $title, $version, $creator, $mode, $difficultyrating, $beatmap_id, $beatmap_url, $beatmapset_id, $player, $player_rank, $country, $player_id, $player_url, $uploader, $youtube_url,$id));
-    $notif = "Replay updated";
     // REFRESH DATA
-    $req = $db->prepare('SELECT * FROM replays WHERE id = ?');
-    $req->execute(array($id));
-    $replay = $req->fetch();
     header('Location: my-replays.php');
   }
 }
 else
 {
-  $replays = $db->prepare('SELECT * FROM replays WHERE uploader = ? ORDER BY id DESC');
-  $replays->execute(array($_SESSION['username']));
+  header('Location: my-replays.php');
 }
 
 ?>
@@ -96,7 +91,7 @@ else
                     <div class="card white">
                         <div class="card-content">
                             <h1 class="center-align">Edit a replay</h1>
-                            <form class="row" action="my-replays.php?edit=<?=$replay['id']?>&token=<?=$_SESSION['token']?>" method="post">
+                            <form class="row" action="edit.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>" method="post">
                                 <div class="input-field col s12 l6">
                                   <input name="beatmap_url" id="beatmap_url" type="text" placeholder="https://osu.ppy.sh/b/00000" value="<?=$replay['beatmap_url']?>">
                                   <label for="beatmap_url">Beatmap ID</label>
@@ -122,43 +117,11 @@ else
                         </div>
                         <div class="card-action center">
                             <button name="edit" type="submit" class="btn waves-effect waves deep-purple accent-2">Edit</button>
-                            <button href="libs/delete_replay.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>" class="btn waves-effect waves red">Delete</button>
+                            <a href="libs/delete_replay.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>" class="btn waves-effect waves red">Delete</a>
                             </form>
                         </div>
                     </div>
                   </div>
-              <?php else: ?>
-                <?php if ($replays->rowCount() > 0): ?>
-                    <div class="col m10 offset-m1">
-                      <?php while($replay = $replays->fetch()) { ?>
-                          <div class="col s12 m6 l4">
-                            <div class="card grey lighten-3">
-                              <div class="card-image">
-                                  <div class="chip">
-                                    <?=$replay['dl_count']?>
-                                  </div>
-                                  <img src="https://assets.ppy.sh//beatmaps/<?=$replay["beatmapset_id"]?>/covers/card.jpg">
-                                  <span class="card-title truncate"><?=$replay["title"]?><br/><?=$replay["artist"]?></span>
-                                  <a href="#" class="btn-floating halfway-fab waves-effect waves-light grey"><i class="material-icons">mode_edit</i></a>
-                              </div>
-                              <div class="card-content center-align">
-                                <span class="card-title">
-                                  Played by <?=$replay["player"]?> (#<?=$replay['player_rank']?>)
-                                  <br/>
-                                  On [<?=$replay["version"]?>] (<?=$replay["difficultyrating"]?>*)
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                      <?php } ?>
-                      </div>
-                <?php else: ?>
-                  <div class="col m10 offset-m1">
-                    <div class="card-panel">
-                      <span>You have no replays.</span>
-                    </div>
-                  </div>
-                <?php endif; ?>
               <?php endif; ?>
 
             </div>

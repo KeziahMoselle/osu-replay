@@ -6,7 +6,10 @@ if ($token = $_SESSION['token'])
 {
     require 'db.php';
     $id = htmlspecialchars($_GET['id']);
-    $path = '../uploads/'.$fileName;
+      $reqFile = $db->prepare('SELECT replay_url FROM replays WHERE id=?');
+      $reqFile->execute(array($id));
+      $reqFileR = $reqFile->fetch();
+      $path = '../uploads/'.$reqFileR["replay_url"];
     // Delete from DB
     $delete = "DELETE FROM replays WHERE id=$id";
     $db->exec($delete);
@@ -20,7 +23,7 @@ if ($token = $_SESSION['token'])
     $updateReplayCounter = $db->prepare("UPDATE users SET replays=? WHERE id=?");
     $updateReplayCounter->execute(array($ReplayCounter,$_SESSION['id']));
     // Redir
-    header('Location: ../myreplays.php');
+    header('Location: ../my-replays.php');
 
 }
 else

@@ -54,6 +54,10 @@ div.background {
     font-weight: 300;
 }
 
+.private {
+  background-color: #424242;
+  color: #FFF;
+}
 .card .card-content .card-title {
     display: block;
     line-height: 24px;
