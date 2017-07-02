@@ -20,7 +20,15 @@ $replays->execute(array("public"));
     <body>
 
         <?php require 'templates/header.php'; ?>
-        <nav>
+
+        <div class="nav-content grey darken-3">
+          <ul class="tabs tabs-transparent center">
+              <li class="tab"><a id="btn-explore" href="#explore">Explore</a></li>
+              <li class="tab"><a id="btn-leaderboard" href="#leaderboard">Leaderboard</a></li>
+          </ul>
+        </div>
+
+        <nav class="hide">
             <div class="nav-wrapper grey darken-3">
               <form action="index.php" method="GET">
                 <div class="input-field">
@@ -35,20 +43,9 @@ $replays->execute(array("public"));
         <main>
 
             <div class="row">
-
-              <div class="col s12 center">
-                <ul class="pagination">
-                  <li class="disabled waves-effect"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                  <li class="waves-effect active"><a href="#!">1</a></li>
-                  <li class="waves-effect"><a href="#!">2</a></li>
-                  <li class="waves-effect"><a href="#!">3</a></li>
-                  <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-                </ul>
-              </div>
-
               <div class="col m10 offset-m1">
-
-                  <?php while($replay = $replays->fetch()) { ?>
+                <div id="explore" class="col s12">
+                  <?php while($replay = $replays->fetch()): ?>
                       <div class="col s12 m6 l4">
                         <div class="card grey lighten-3">
                             <div class="card-image">
@@ -69,14 +66,31 @@ $replays->execute(array("public"));
                             </div>
                           </div>
                       </div>
-                  <?php } ?>
+                  <?php endwhile; ?>
 
                 </div>
 
+                <div id="leaderboard" class="col s12">
+
+                </div>
+              </div>
             </div>
 
         </main>
 
         <?php require 'templates/footer.php'; ?>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            // Explore
+            $("#btn-explore").click(function(){
+              $("#explore").load("templates/explore.php");
+            });
+
+            $("#btn-leaderboard").click(function(){
+              $("#leaderboard").load("templates/leaderboard.php");
+            });
+
+          });
+        </script>
     </body>
 </html>
