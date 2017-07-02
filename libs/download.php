@@ -29,7 +29,7 @@ if (isset($_GET['id']))
 }
 else
 {
-  die('Error');
+  die('wtf');
 }
 
 ?>

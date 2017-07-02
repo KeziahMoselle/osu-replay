@@ -8,7 +8,7 @@ if ($token = $_SESSION['token'])
 }
 else
 {
-    die('Error: token');
+    die('wtf');
 }
 
 ?>
