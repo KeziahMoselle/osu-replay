@@ -74,6 +74,20 @@ $replays->execute(array("public"));
 
                 <div id="leaderboard" class="col s12">
 
+                  <div class="center">
+                    <div class="preloader-wrapper big active">
+                      <div class="spinner-layer spinner-purple-only">
+                        <div class="circle-clipper left">
+                          <div class="circle"></div>
+                        </div><div class="gap-patch">
+                          <div class="circle"></div>
+                        </div><div class="circle-clipper right">
+                          <div class="circle"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -88,6 +102,7 @@ $replays->execute(array("public"));
               $("#explore").load("templates/explore.php");
             });
 
+            // Leaderboard
             $("#btn-leaderboard").click(function(){
               $("#leaderboard").load("templates/leaderboard.php");
             });

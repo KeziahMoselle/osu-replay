@@ -2,7 +2,7 @@
 session_start();
 require '../libs/db.php';
 
-$replays = $db->prepare('SELECT * FROM replays WHERE visibility = ? ORDER BY dl_count DESC');
+$replays = $db->prepare('SELECT * FROM replays WHERE visibility = ? ORDER BY dl_count DESC LIMIT 50');
 $replays->execute(array("public"));
 ?>
 

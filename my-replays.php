@@ -25,12 +25,11 @@ $replays->execute(array($_SESSION['username']));
         <?php require 'templates/header.php'; ?>
         <nav>
             <div class="nav-wrapper grey darken-3">
-              <form action="index.php" method="GET">
-                <div class="input-field">
-                  <input id="search" type="search" placeholder="Search isn't available for the moment." required>
-                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                  <i class="material-icons">close</i>
-                </div>
+              <form id="filters">
+                <p>
+                  <input name="private" type="checkbox" class="filled-in" id="filled-in-box"/>
+                  <label for="filled-in-box">Private</label>
+                </p>
               </form>
             </div>
         </nav>
@@ -72,5 +71,16 @@ $replays->execute(array($_SESSION['username']));
         </main>
 
         <?php require 'templates/footer.php'; ?>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            function values()
+            {
+              var data = $("#filters").serialize();
+              $("#results").text(data);
+            }
+
+            $("input").on("click", values);
+          });
+        </script>
     </body>
 </html>

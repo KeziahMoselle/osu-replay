@@ -30,6 +30,9 @@ a.brand-logo {
 nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
     margin: 0;
 }
+.nav-wrapper p {
+  margin: 0;
+}
 
 div.background {
     background-color: #3C3C3C;
@@ -184,6 +187,11 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
   color: #5e35b1;
 }
 
+[type="checkbox"].filled-in:checked+label:after {
+    border: 2px solid #7c4dff;
+    background-color: #7c4dff;
+}
+
 .switch label input[type=checkbox]:checked+.lever:after {
     background-color: #7c4dff ;
     left: 24px;
@@ -194,4 +202,12 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 
 .pagination li.active {
     background-color: #5e35b1;
+}
+
+.spinner-purple-only {
+    border-color: #5e35b1;
+}
+
+.preloader-wrapper {
+  margin-top: 60px;
 }
