@@ -30,6 +30,7 @@ $replays->execute(array($_SESSION['username']));
                   <input name="private" type="checkbox" class="filled-in" id="filled-in-box"/>
                   <label for="filled-in-box">Private</label>
                 </p>
+                <p id="results"></p>
               </form>
             </div>
         </nav>
@@ -37,7 +38,9 @@ $replays->execute(array($_SESSION['username']));
         <main>
 
             <div class="row">
-              <div id="view" class="col s12">
+              <div class="col m10 offset-m1">
+                <div id="view" class="col s12">
+              </div>
                 <?php if ($replays->rowCount() > 0): ?>
                     <div class="col m10 offset-m1">
                       <?php while($replay = $replays->fetch()): ?>
@@ -77,6 +80,10 @@ $replays->execute(array($_SESSION['username']));
             {
               var data = $("#filters").serialize();
               $("#results").text(data);
+
+              $("#view").load("templates/load-myreplays.php", {
+                data: data
+              });
             }
 
             $("input").on("click", values);
