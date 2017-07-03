@@ -50,8 +50,20 @@ $replays->execute(array($_SESSION['username']));
                                   </div>
                                   <img src="https://assets.ppy.sh//beatmaps/<?=$replay["beatmapset_id"]?>/covers/card.jpg">
                                   <span class="card-title truncate"><?=$replay["title"]?><br/><?=$replay["artist"]?></span>
-                                  <a href="edit.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>" class="btn-floating floating-left halfway-fab waves-effect waves-light grey"><i class="material-icons">mode_edit</i></a>
-                                  <a href="libs/download.php?id=<?=$replay['id']?>" class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2"><i class="material-icons">play_for_work</i></a>
+                                  <div class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2 list-fab"><i class="material-icons">more_vert</i></div>
+                                    <div class="list-menu">
+                                      <ul>
+                                        <a href="libs/download.php?id=<?=$replay['id']?>">
+                                          <li>Download</li>
+                                        </a>
+                                        <a href="edit.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>">
+                                          <li>Edit</li>
+                                        </a>
+                                        <a href="libs/delete_replay.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>">
+                                          <li>Delete</li>
+                                        </a>
+                                      </ul>
+                                    </div>
                               </div>
                               <div class="card-content center-align <?php if($replay['visibility'] == "private"){echo "private";}?>">
                                 <span class="card-title">

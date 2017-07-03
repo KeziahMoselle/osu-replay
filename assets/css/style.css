@@ -227,7 +227,7 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
           transform: translateY(30px);
   -webkit-clip-path: circle(0% at 87% 87%);
   clip-path: circle(0 at 87% 87%);
-  z-index: 1;
+  z-index: 3;
 }
 
 
