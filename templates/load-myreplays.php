@@ -3,11 +3,20 @@ session_start();
 
 require '../libs/db.php';
 
-$private = $_POST['private'];
-$private = "private";
+$private = explode('=',$_POST['private']);
+$private = $private[0];
 
-$replays = $db->prepare('SELECT * FROM replays WHERE uploader = ? AND visibility = ? ORDER BY id DESC');
-$replays->execute(array($_SESSION['username'],$private));
+if (strlen($private) > 0)
+{
+  $replays = $db->prepare('SELECT * FROM replays WHERE uploader = ? AND visibility = ? ORDER BY id DESC');
+  $replays->execute(array($_SESSION['username'],$private));
+}
+else
+{
+  $replays = $db->prepare('SELECT * FROM replays WHERE uploader = ? ORDER BY id DESC');
+  $replays->execute(array($_SESSION['username']));
+}
+
 
 ?>
 

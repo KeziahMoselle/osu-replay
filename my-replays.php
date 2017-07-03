@@ -76,7 +76,7 @@ $replays->execute(array($_SESSION['username']));
             function values()
             {
               var data = $("#filters").serialize();
-              $("#results").text(data);
+              console.log(data);
 
               $("#view").load("templates/load-myreplays.php", {
                 private: data
