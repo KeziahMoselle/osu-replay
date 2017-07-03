@@ -80,7 +80,7 @@
                 <div class="switch">
                     <label>
                         Public
-                        <input name="visibility" type="checkbox" checked>
+                        <input name="visibility" type="checkbox">
                         <span class="lever"></span>
                         Private
                     </label>
