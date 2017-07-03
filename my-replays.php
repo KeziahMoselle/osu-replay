@@ -37,10 +37,8 @@ $replays->execute(array($_SESSION['username']));
 
         <main>
 
-            <div class="row">
-              <div class="col m10 offset-m1">
-                <div id="view" class="col s12">
-              </div>
+            <div id="view" class="row">
+
                 <?php if ($replays->rowCount() > 0): ?>
                     <div class="col m10 offset-m1">
                       <?php while($replay = $replays->fetch()): ?>
@@ -67,7 +65,6 @@ $replays->execute(array($_SESSION['username']));
                       <?php endwhile; ?>
                       </div>
                 <?php endif; ?>
-              </div>
 
             </div>
 
@@ -82,7 +79,7 @@ $replays->execute(array($_SESSION['username']));
               $("#results").text(data);
 
               $("#view").load("templates/load-myreplays.php", {
-                data: data
+                private: data
               });
             }
 

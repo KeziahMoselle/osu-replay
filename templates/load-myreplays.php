@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require 'db.php';
+require '../libs/db.php';
 
 $private = $_POST['private'];
 $private = "private";
@@ -35,4 +35,6 @@ $replays->execute(array($_SESSION['username'],$private));
               </div>
             </div>
           </div>
-<?php endwhile; ?>
+      <?php endwhile; ?>
+      </div>
+<?php endif; ?>
