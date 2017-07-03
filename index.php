@@ -30,18 +30,6 @@ $replays->execute(array("public"));
           </ul>
         </div>
 
-        <nav class="hide">
-            <div class="nav-wrapper grey darken-3">
-              <form action="index.php" method="GET">
-                <div class="input-field">
-                  <input id="search" type="search" placeholder="Search isn't available for the moment." required>
-                  <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                  <i class="material-icons">close</i>
-                </div>
-              </form>
-            </div>
-        </nav>
-
         <main>
 
             <div class="row">
@@ -56,7 +44,21 @@ $replays->execute(array("public"));
                               </div>
                               <img src="https://assets.ppy.sh//beatmaps/<?=$replay["beatmapset_id"]?>/covers/card.jpg">
                               <span class="card-title truncate"><?=$replay["title"]?><br/><?=$replay["artist"]?> by <?=$replay["creator"]?></span>
-                              <a href="libs/download.php?id=<?=$replay['id']?>" class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2"><i class="material-icons">play_for_work</i></a>
+                              <?php if (strlen($replay['youtube_url']) != 0): ?>
+                                <div class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2 list-fab"><i class="material-icons">more_vert</i></div>
+                                  <div class="list-menu">
+                                    <ul>
+                                      <a href="libs/download.php?id=<?=$replay['id']?>">
+                                        <li>Download</li>
+                                      </a>
+                                      <a href="<?=$replay['youtube_url']?>">
+                                        <li>View</li>
+                                      </a>
+                                    </ul>
+                                  </div>
+                              <?php else: ?>
+                                <a href="libs/download.php?id=<?=$replay['id']?>" class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2"><i class="material-icons">play_for_work</i></a>
+                              <?php endif; ?>
                             </div>
                             <div class="card-content center-align">
                               <p>
@@ -91,7 +93,6 @@ $replays->execute(array("public"));
                 </div>
               </div>
             </div>
-
         </main>
 
         <?php require 'templates/footer.php'; ?>

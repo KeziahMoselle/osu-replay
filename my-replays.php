@@ -26,7 +26,7 @@ $replays->execute(array($_SESSION['username']));
         <nav>
             <div class="nav-wrapper grey darken-3">
               <form id="filters">
-                <p>
+                <p class="center">
                   <input name="private" type="checkbox" class="filled-in" id="filled-in-box"/>
                   <label for="filled-in-box">Private</label>
                 </p>
@@ -75,11 +75,11 @@ $replays->execute(array($_SESSION['username']));
           $(document).ready(function(){
             function values()
             {
-              var data = $("#filters").serialize();
-              console.log(data);
+              var private = $("#filters").serialize();
+              console.log(private);
 
               $("#view").load("templates/load-myreplays.php", {
-                private: data
+                private: private
               });
             }
 

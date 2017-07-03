@@ -7,7 +7,7 @@ $replays->execute(array("public"));
 ?>
 
 <?php while($replay = $replays->fetch()): ?>
-    <div class="col s12 m6 l4">
+    <div class="col s12 m6 offset-m3 l4 offset-l4">
       <div class="card grey lighten-3">
           <div class="card-image">
             <div class="chip">

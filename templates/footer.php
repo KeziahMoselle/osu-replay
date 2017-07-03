@@ -11,3 +11,4 @@
 <script type="text/javascript" src="/assets/js/materialize.min.js"></script>
 <script type="text/javascript" src="/assets/js/sidenav.js"></script>
 <script type="text/javascript" src="/assets/js/modals.js"></script>
+<script type="text/javascript" src="/assets/js/menu.js"></script>

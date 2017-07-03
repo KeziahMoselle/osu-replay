@@ -211,3 +211,48 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 .preloader-wrapper {
   margin-top: 60px;
 }
+
+.list-menu {
+  position: absolute;
+  right: -24px;
+  bottom: -40px;
+  width: 128px;
+  background: white;
+  border-radius: 2px;
+  opacity: 0.5;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition: .25s ease-out;
+  transition: .25s ease-out;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
+  -webkit-clip-path: circle(0% at 87% 87%);
+  clip-path: circle(0 at 87% 87%);
+  z-index: 1;
+}
+
+
+.list-menu.active {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-clip-path: circle(200% at 87% 87%);
+  clip-path: circle(200% at 87% 87%);
+}
+
+.list-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list-menu ul li {
+  padding: 10px 25px;
+  cursor: pointer;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.list-menu ul li:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.list-menu a {
+  color: #000;
+}
