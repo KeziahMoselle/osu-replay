@@ -61,9 +61,9 @@ $replays->execute(array("public"));
                                     <?php endif; ?>
                                     <a href="libs/favorite.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>&ref=<?=$page?>">
                                       <?php if ($isfav->rowCount() == 0): ?>
-                                        <li>Add to favorite</li>
+                                        <li>+ favorite</li>
                                       <?php else: ?>
-                                        <li>Remove from favorites</li>
+                                        <li>- favorites</li>
                                       <?php endif; ?>
                                     </a>
                                   </ul>

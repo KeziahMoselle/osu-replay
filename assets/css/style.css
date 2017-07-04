@@ -256,9 +256,12 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
   -webkit-transition: .3s ease;
   transition: .3s ease;
 }
+
 .list-menu ul li:hover {
   background: rgba(0, 0, 0, 0.1);
 }
 .list-menu a {
   color: #000;
+}
+.list-menu i {
 }
