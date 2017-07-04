@@ -5,8 +5,22 @@ $page = "index.php";
 
 require 'libs/db.php';
 
-$replays = $db->prepare('SELECT * FROM replays WHERE visibility = ? ORDER BY id DESC');
-$replays->execute(array("public"));
+if (isset($_POST['search']))
+{ // Search
+
+  $search = htmlspecialchars($_POST['search']);
+  $sql = "SELECT * FROM `replays` WHERE CONCAT(`artist`, `title`, `version`, `creator`, `player`) LIKE '%".$search."%'";
+  $query = $db->prepare($sql);
+  $query->execute();
+
+}
+else
+{
+
+  $query = $db->prepare('SELECT * FROM replays WHERE visibility = ? ORDER BY id DESC');
+  $query->execute(array("public"));
+
+}
 
 ?>
 <!DOCTYPE html>
@@ -29,13 +43,25 @@ $replays->execute(array("public"));
               <li class="tab"><a id="btn-leaderboard" href="#leaderboard">Leaderboard</a></li>
           </ul>
         </div>
+        <nav>
+          <div class="nav-wrapper grey darken-3">
+            <form action="index.php" method="POST">
+              <div class="input-field">
+                <input name="search" id="search" type="search" placeholder="Type some key words (artist,title,difficulty name,creator)" required>
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+              </div>
+            </form>
+          </div>
+        </nav>
 
         <main>
 
             <div class="row">
               <div class="col m10 offset-m1">
-                <div id="explore" class="col s12">
-                  <?php while($replay = $replays->fetch()): ?>
+                <div id="explore">
+
+                  <?php while($replay = $query->fetch()): ?>
                     <?php
                       $isfav = $db->prepare('SELECT * FROM favorites WHERE user = ? AND replay = ?');
                       $isfav->execute(array($_SESSION['id'],$replay['id']));
@@ -61,9 +87,9 @@ $replays->execute(array("public"));
                                     <?php endif; ?>
                                     <a href="libs/favorite.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>&ref=<?=$page?>">
                                       <?php if ($isfav->rowCount() == 0): ?>
-                                        <li>+ favorite</li>
+                                        <li>Add to favorite</li>
                                       <?php else: ?>
-                                        <li>- favorites</li>
+                                        <li>Remove from favorites</li>
                                       <?php endif; ?>
                                     </a>
                                   </ul>
@@ -83,7 +109,8 @@ $replays->execute(array("public"));
 
                 </div>
 
-                <div id="leaderboard" class="col s12">
+
+                <div id="leaderboard">
 
                   <div class="center">
                     <div class="preloader-wrapper big active">
@@ -100,6 +127,7 @@ $replays->execute(array("public"));
                   </div>
 
                 </div>
+
               </div>
             </div>
         </main>

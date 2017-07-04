@@ -49,8 +49,7 @@ $replays->execute(array($_SESSION['username']));
                                     <?=$replay['dl_count']?>
                                   </div>
                                   <img src="https://assets.ppy.sh//beatmaps/<?=$replay["beatmapset_id"]?>/covers/card.jpg">
-                                  <span class="card-title truncate"><?=$replay["title"]?><br/><?=$replay["artist"]?></span>
-
+                                  <span class="card-title truncate"><?=$replay["title"]?><br/><?=$replay["artist"]?> by <?=$replay["creator"]?></span>
                                   <div class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2 list-fab">
                                     <i class="material-icons">more_vert</i>
                                   </div>
@@ -70,11 +69,12 @@ $replays->execute(array($_SESSION['username']));
 
                               </div>
                               <div class="card-content center-align <?php if($replay['visibility'] == "private"){echo "private";}?>">
-                                <span class="card-title">
+                                <p>
                                   Played by <?=$replay["player"]?> (#<?=$replay['player_rank']?>)
                                   <br/>
                                   On [<?=$replay["version"]?>] (<?=$replay["difficultyrating"]?>*)
-                                </span>
+                                  <br/>
+                                </p>
                               </div>
                             </div>
                           </div>

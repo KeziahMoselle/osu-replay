@@ -220,9 +220,9 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 
 .list-menu {
   position: absolute;
-  right: -24px;
+  right: -6px;
   bottom: -40px;
-  width: 128px;
+  width: auto;
   background: white;
   border-radius: 2px;
   opacity: 0.5;
@@ -262,6 +262,4 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 }
 .list-menu a {
   color: #000;
-}
-.list-menu i {
 }

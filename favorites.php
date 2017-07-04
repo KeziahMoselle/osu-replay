@@ -70,7 +70,7 @@ $favCount = $queryFav->rowCount();
                                 </a>
                               <?php endif; ?>
                               <a href="libs/favorite.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>&ref=<?=$page?>">
-                                <li><i class="material-icons">favorite</i></li>
+                                <li>Remove from favorites</li>
                               </a>
                             </ul>
                           </div>
