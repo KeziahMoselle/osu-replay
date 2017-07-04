@@ -43,6 +43,7 @@ else
               <li class="tab"><a id="btn-leaderboard" href="#leaderboard">Leaderboard</a></li>
           </ul>
         </div>
+
         <nav>
           <div class="nav-wrapper grey darken-3">
             <form action="index.php" method="POST">
@@ -86,10 +87,12 @@ else
                                       </a>
                                     <?php endif; ?>
                                     <a href="libs/favorite.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>&ref=<?=$page?>">
-                                      <?php if ($isfav->rowCount() == 0): ?>
-                                        <li>Add to favorite</li>
-                                      <?php else: ?>
-                                        <li>Remove from favorites</li>
+                                      <?php if (isset($_SESSION['auth'])): ?>
+                                        <?php if ($isfav->rowCount() == 0): ?>
+                                          <li>Add to favorite</li>
+                                        <?php else: ?>
+                                          <li>Remove from favorites</li>
+                                        <?php endif; ?>
                                       <?php endif; ?>
                                     </a>
                                   </ul>
@@ -112,7 +115,7 @@ else
 
                 <div id="leaderboard">
 
-                  <div class="center">
+                  <div class="col s12 center">
                     <div class="preloader-wrapper big active">
                       <div class="spinner-layer spinner-purple-only">
                         <div class="circle-clipper left">
