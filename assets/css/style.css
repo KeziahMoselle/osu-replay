@@ -22,6 +22,12 @@ main {
   }
 }
 
+.subnav {
+  height: 48px;
+  line-height: 48px;
+}
+
+
 
 a.brand-logo {
     font-weight: 300;

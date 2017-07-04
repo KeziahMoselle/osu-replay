@@ -23,7 +23,7 @@ $replays->execute(array($_SESSION['username']));
     <body>
 
         <?php require 'templates/header.php'; ?>
-        <nav>
+        <nav class="subnav">
             <div class="nav-wrapper grey darken-3">
               <form id="filters">
                 <p class="center">
