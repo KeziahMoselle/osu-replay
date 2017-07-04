@@ -3,6 +3,8 @@ session_start();
 
 require 'db.php';
 
+$page = htmlspecialchars($_GET['ref']);
+
 if (isset($_GET['id'],$_GET['token']) AND $_GET['token'] == $_SESSION['token'])
 {
   $id = $_GET['id'];
@@ -24,7 +26,6 @@ if (isset($_GET['id'],$_GET['token']) AND $_GET['token'] == $_SESSION['token'])
 
     $addFavorite = $db->prepare('INSERT INTO favorites (user,replay) VALUES(?,?)');
     $addFavorite->execute(array($user_id,$id));
-    $page = htmlspecialchars($_GET['ref']);
     header("Location: ../$page");
 
   }
