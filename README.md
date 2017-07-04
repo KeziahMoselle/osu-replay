@@ -14,11 +14,11 @@ You can share your replays or just save them privately.
 * Add a Youtube link (In edit)
 * Leaderboard
 * Favorites (AJAX soon)
+* Add search bar (AJAX soon)
 
 ## Features i want to implement
 
 * Add Pagination
-* Add search bar
 * Add some cool badges
 
 ## Problems encountered
