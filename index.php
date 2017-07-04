@@ -137,12 +137,12 @@ else
           $(document).ready(function(){
             // Explore
             $("#btn-explore").click(function(){
-              $("#explore").load("templates/explore.php");
+              $("#explore").load("templates/load-explore.php");
             });
 
             // Leaderboard
             $("#btn-leaderboard").click(function(){
-              $("#leaderboard").load("templates/leaderboard.php");
+              $("#leaderboard").load("templates/load-leaderboard.php");
             });
 
           });
