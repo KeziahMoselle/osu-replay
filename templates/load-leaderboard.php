@@ -30,15 +30,15 @@ $replays->execute(array("public"));
                       <li>View</li>
                     </a>
                   <?php endif; ?>
-                  <a href="libs/favorite.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>&ref=<?=$page?>">
                     <?php if (isset($_SESSION['auth'])): ?>
+                      <a href="libs/favorite.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>&ref=<?=$page?>">
                       <?php if ($isfav->rowCount() == 0): ?>
                         <li>Add to favorite</li>
                       <?php else: ?>
                         <li>Remove from favorites</li>
                       <?php endif; ?>
+                      </a>
                     <?php endif; ?>
-                  </a>
                 </ul>
               </div>
           </div>
