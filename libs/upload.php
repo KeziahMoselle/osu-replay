@@ -76,7 +76,6 @@ if (isset($_POST['upload']))
 
                     $page = htmlspecialchars($_GET['ref']);
                     header("Location: ../$page");
-                    die("Replay uploaded.");
               }
               else
               {
