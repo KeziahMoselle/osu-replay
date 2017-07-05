@@ -33,11 +33,12 @@ if (isset($_POST['signup']))
                 curl_close($curl);
 
                 $avatar_link = $matches[0];
+                $user_id = $matches[1];
 
                 if ($password == $c_password)
                 { //Les mots de passe sont identiques
-                    $insert = $db->prepare('INSERT INTO users(username,password,avatar_link) VALUES(?,?,?)');
-                    $insert->execute(array($username,$password,$avatar_link));
+                    $insert = $db->prepare('INSERT INTO users(username,password,user_id,avatar_link) VALUES(?,?,?,?)');
+                    $insert->execute(array($username,$password,$user_id,$avatar_link));
 
                     $is_signup = $db->prepare('SELECT * FROM users WHERE username = ? AND password = ?');
                     $is_signup->execute(array($username, $password));
