@@ -5,24 +5,9 @@ $page = "index.php";
 
 require 'libs/db.php';
 
-if (isset($_POST['search']))
-{ // Search
-
-  $search = htmlspecialchars($_POST['search']);
-  $sql = "SELECT * FROM `replays` WHERE CONCAT(`artist`, `title`, `version`, `creator`, `player`) LIKE '%".$search."%'";
-  $query = $db->prepare($sql);
-  $query->execute();
-
-}
-else
-{
-
-  $query = $db->prepare('SELECT * FROM replays WHERE visibility = ? ORDER BY id DESC');
-  $query->execute(array("public"));
-
-}
-
+require 'libs/search.php';
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -44,6 +29,7 @@ else
           </ul>
         </div>
 
+        <!--
         <nav>
           <div class="nav-wrapper grey darken-3">
             <form action="index.php" method="POST">
@@ -55,8 +41,13 @@ else
             </form>
           </div>
         </nav>
+      -->
 
         <main>
+
+          <div id="ajax">
+
+          </div>
 
             <div class="row">
               <div class="col m10 offset-m1">
@@ -146,6 +137,20 @@ else
             // Leaderboard
             $("#btn-leaderboard").click(function(){
               $("#leaderboard").load("templates/load-leaderboard.php");
+            });
+
+          });
+
+
+          $("input").keyup(function(){
+
+            $.post("libs/search.php",
+            {
+              search : $("input").val()
+            },
+            function(data)
+            {
+              console.log(JSON.parse(data));
             });
 
           });
