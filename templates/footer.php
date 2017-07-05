@@ -2,7 +2,7 @@
   <div class="footer-copyright">
     <div class="container">
         osu!replay by <a href="https://osu.ppy.sh/u/5914915">Nemesis-</a>
-        <a class="grey-text text-lighten-4 right" href="about.php">CGU and TOS</a>
+        <a class="grey-text text-lighten-4 right" href="about.php">Informations</a>
     </div>
   </div>
 </footer>

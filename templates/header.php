@@ -10,7 +10,7 @@
                 <li><a href="/favorites.php"><i class="material-icons">favorite</i></a></li>
             <?php else: ?>
                 <li><a href="/auth/signup.php">Sign up</a></li>
-                <li><a class="btn waves-effect waves white black-text" href="/auth/login.php">Login</a></li>
+                <li><a href="/auth/login.php">Login</a></li>
             <?php endif; ?>
           </ul>
           <ul id="sidenav" class="side-nav">
@@ -25,7 +25,9 @@
                     <?php endif; ?>
                 </span>
               <?php else: ?>
-                <img class="circle" src="../assets/css/account_circle.png">
+                <a href="<?=$user['replays']?>">
+                  <img class="circle" src="../assets/css/account_circle.png">
+                </a>
                 <span class="white-text name">Welcome !</span>
                 <span class="white-text email">Please log in.</span>
               <?php endif; ?>

@@ -51,7 +51,7 @@ if (isset($_POST['login']))
     <body>
 
         <?php require '../templates/header.php'; ?>
-        <nav>
+        <nav class="subnav">
             <div class="nav-wrapper grey darken-3">
                 <div class="col s12 center-align">
                     <span class="white-text">
