@@ -5,6 +5,8 @@
           <a href="#" data-activates="sidenav" class="button-collapse right"><i class="material-icons">menu</i></a>
           <ul class="right hide-on-med-and-down">
             <?php if($_SESSION['auth'] == 1): ?>
+                <li><a href="/index.php">Explore</a></li>
+                <li><a href="/leaderboard.php">Leaderboard</a></li>
                 <li><a href="#upload"><i class="material-icons">file_upload</i></a></li>
                 <li><a href="/my-replays.php"><i class="material-icons">folder</i></a></li>
                 <li><a href="/favorites.php"><i class="material-icons">favorite</i></a></li>
