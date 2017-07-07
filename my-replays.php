@@ -30,7 +30,6 @@ $replays->execute(array($_SESSION['username']));
                   <input name="private" type="checkbox" class="filled-in" id="filled-in-box"/>
                   <label for="filled-in-box">Private</label>
                 </p>
-                <p id="results"></p>
               </form>
             </div>
         </nav>

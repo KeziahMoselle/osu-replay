@@ -22,18 +22,10 @@ require 'libs/search.php';
 
         <?php require 'templates/header.php'; ?>
 
-        <div class="nav-content grey darken-3">
-          <ul class="tabs tabs-transparent center">
-              <li class="tab"><a id="btn-explore" href="#explore">Explore</a></li>
-              <li class="tab"><a id="btn-leaderboard" href="#leaderboard">Leaderboard</a></li>
-          </ul>
-        </div>
-
-        <!--
         <nav>
           <div class="nav-wrapper grey darken-3">
-            <form action="index.php" method="POST">
-              <div class="input-field">
+            <form class="row" action="index.php" method="POST">
+              <div class="input-field col s12 m6 offset-m3">
                 <input name="search" id="search" type="search" placeholder="Type some key words (artist,title,difficulty name,creator)" required>
                 <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                 <i class="material-icons">close</i>
@@ -41,90 +33,65 @@ require 'libs/search.php';
             </form>
           </div>
         </nav>
-      -->
 
         <main>
 
-          <div id="ajax">
-
-          </div>
-
             <div class="row">
               <div class="col m10 offset-m1">
-                <div id="explore">
 
-                  <?php while($replay = $query->fetch()): ?>
-                    <?php
-                      $isfav = $db->prepare('SELECT * FROM favorites WHERE user = ? AND replay = ?');
-                      $isfav->execute(array($_SESSION['id'],$replay['id']));
-                    ?>
-                      <div class="col s12 m6 l4">
-                        <div class="card grey lighten-3">
-                            <div class="card-image">
-                              <div class="chip">
-                                <?=$replay['dl_count']?>
-                              </div>
-                              <img src="https://assets.ppy.sh//beatmaps/<?=$replay["beatmapset_id"]?>/covers/card.jpg">
-                              <span class="card-title truncate"><?=$replay["title"]?><br/><?=$replay["artist"]?> by <?=$replay["creator"]?></span>
-                                <div class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2 list-fab"><i class="material-icons">more_vert</i></div>
-                                <div class="list-menu">
-                                  <ul>
-                                    <a href="libs/download.php?id=<?=$replay['id']?>">
-                                      <li>Download</li>
+                <?php while($replay = $query->fetch()): ?>
+                  <?php
+                    $isfav = $db->prepare('SELECT * FROM favorites WHERE user = ? AND replay = ?');
+                    $isfav->execute(array($_SESSION['id'],$replay['id']));
+                  ?>
+                    <div class="col s12 m6 l4">
+                      <div class="card grey lighten-3">
+                          <div class="card-image">
+                            <div class="chip">
+                              <?=$replay['dl_count']?>
+                            </div>
+                            <img src="https://assets.ppy.sh//beatmaps/<?=$replay["beatmapset_id"]?>/covers/card.jpg">
+                            <span class="card-title truncate"><?=$replay["title"]?><br/><?=$replay["artist"]?> by <?=$replay["creator"]?></span>
+                              <div class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2 list-fab"><i class="material-icons">more_vert</i></div>
+                              <div class="list-menu">
+                                <ul>
+                                  <a href="libs/download.php?id=<?=$replay['id']?>">
+                                    <li>Download</li>
+                                  </a>
+                                  <?php if (strlen($replay['youtube_url']) != 0): ?>
+                                    <a href="<?=$replay['youtube_url']?>">
+                                      <li>View</li>
                                     </a>
-                                    <?php if (strlen($replay['youtube_url']) != 0): ?>
-                                      <a href="<?=$replay['youtube_url']?>">
-                                        <li>View</li>
-                                      </a>
+                                  <?php endif; ?>
+                                  <?php if (isset($_SESSION['auth'])): ?>
+                                    <a href="libs/favorite.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>&ref=<?=$page?>">
+                                    <?php if ($isfav->rowCount() == 0): ?>
+                                      <li>Add to favorite</li>
+                                    <?php else: ?>
+                                      <li>Remove from favorites</li>
                                     <?php endif; ?>
-                                    <?php if (isset($_SESSION['auth'])): ?>
-                                      <a href="libs/favorite.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>&ref=<?=$page?>">
-                                      <?php if ($isfav->rowCount() == 0): ?>
-                                        <li>Add to favorite</li>
-                                      <?php else: ?>
-                                        <li>Remove from favorites</li>
-                                      <?php endif; ?>
-                                      </a>
-                                    <?php endif; ?>
-                                  </ul>
-                                </div>
-                            </div>
-                            <div class="card-content center-align">
-                              <p>
-                                Played by <?=$replay["player"]?> (#<?=$replay['player_rank']?>)
-                                <br/>
-                                On [<?=$replay["version"]?>] (<?=$replay["difficultyrating"]?>*)
-                                <br/>
-                              </p>
-                            </div>
+                                    </a>
+                                  <?php endif; ?>
+                                </ul>
+                              </div>
                           </div>
-                      </div>
-                  <?php endwhile; ?>
-
-                </div>
-
-
-                <div id="leaderboard">
-
-                  <div class="col s12 center">
-                    <div class="preloader-wrapper big active">
-                      <div class="spinner-layer spinner-purple-only">
-                        <div class="circle-clipper left">
-                          <div class="circle"></div>
-                        </div><div class="gap-patch">
-                          <div class="circle"></div>
-                        </div><div class="circle-clipper right">
-                          <div class="circle"></div>
+                          <div class="card-content center-align">
+                            <p>
+                              Played by <?=$replay["player"]?> (#<?=$replay['player_rank']?>)
+                              <br/>
+                              On [<?=$replay["version"]?>] (<?=$replay["difficultyrating"]?>*)
+                              <br/>
+                            </p>
+                          </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
-
-                </div>
+                <?php endwhile; ?>
 
               </div>
             </div>
+
         </main>
+
 
         <?php require 'templates/footer.php'; ?>
         <script type="text/javascript">
