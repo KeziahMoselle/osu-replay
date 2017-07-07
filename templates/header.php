@@ -19,7 +19,9 @@
             <li><div class="userView">
               <div class="background"></div>
               <?php if ($_SESSION['auth'] == 1): ?>
-                <img class="circle" src="<?=$user['avatar_link']?>">
+                <a href="https://osu.ppy.sh/u/<?=$user['user_id']?>">
+                  <img class="circle" src="<?=$user['avatar_link']?>">
+                </a>
                 <span class="white-text name">Welcome <?= $_SESSION['username'] ?></span>
                 <span class="white-text email">
                     <?php if ($_SESSION['auth'] == 1): ?>
@@ -27,9 +29,7 @@
                     <?php endif; ?>
                 </span>
               <?php else: ?>
-                <a href="<?=$user['replays']?>">
-                  <img class="circle" src="../assets/css/account_circle.png">
-                </a>
+                <img class="circle" src="../assets/css/account_circle.png">
                 <span class="white-text name">Welcome !</span>
                 <span class="white-text email">Please log in.</span>
               <?php endif; ?>
