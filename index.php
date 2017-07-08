@@ -95,19 +95,6 @@ require 'libs/search.php';
 
         <?php require 'templates/footer.php'; ?>
         <script type="text/javascript">
-          $(document).ready(function(){
-            // Explore
-            $("#btn-explore").click(function(){
-              $("#explore").load("templates/load-explore.php");
-            });
-
-            // Leaderboard
-            $("#btn-leaderboard").click(function(){
-              $("#leaderboard").load("templates/load-leaderboard.php");
-            });
-
-          });
-
 
           $("input").keyup(function(){
 
