@@ -1,3 +1,4 @@
+# Refactoring the code : procedural -> OOP
 # osu-collection
 
 __The cloud for replays__
