@@ -1,4 +1,4 @@
-# Refactoring the code : procedural -> OOP
+# PAUSE : Learning OOP
 # osu-collection
 
 __The cloud for replays__
