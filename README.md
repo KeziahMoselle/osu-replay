@@ -1,4 +1,3 @@
-# PAUSE : Learning OOP
 # osu-collection
 
 __The cloud for replays__
@@ -14,8 +13,8 @@ You can share your replays or just save them privately.
 * Download counter
 * Add a Youtube link (In edit)
 * Leaderboard
-* Favorites (AJAX soon)
-* Add search bar (AJAX soon)
+* Favorites (TODO : AJAX)
+* Add search bar (TODO : AJAX)
 
 ## Features i want to implement
 
