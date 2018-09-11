@@ -1,8 +1,14 @@
-# osu-collection
+# osu!replay
 
 __The cloud for replays__
 
 You can share your replays or just save them privately.
+
+## THIS IS AN EDUCATIONAL PROJECT
+This is an old project to learn API and PHP. This project is not maintained anymore.
+
+## Preview
+![preview](./assets/preview.gif)
 
 ## Features
 
@@ -16,12 +22,11 @@ You can share your replays or just save them privately.
 - [X] Favorites
 - [X] Search bar
 
-## Features i want to implement
+## Future features
 
 - [ ] AJAX Favorites
-- [ ] AJAX Favorites
 - [ ] Add Pagination
-- [ ] Add some cool badges
+- [ ] Refactor code
 
 ## Problems encountered
 
