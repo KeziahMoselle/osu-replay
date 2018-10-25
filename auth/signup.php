@@ -23,15 +23,15 @@ if (isset($_POST['signup']))
             { //Si le pseudo n'existe pas dans la bdd
 
                 $curl = curl_init();
-                $url = "https://osu.ppy.sh/u/$username";
+                $url = "https://osu.ppy.sh/users/$username";
                 curl_setopt($curl, CURLOPT_URL, $url);
                 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
                 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                 $result = curl_exec($curl);
-
-                preg_match("^\/\/a\.ppy\.sh\/(\d*)_(\d*)\.jpg^", $result, $matches);
+                
+                preg_match("^https:\/\/a\.ppy\.sh\/(\d*)\?(\d*)\.jpeg^", $result, $matches);
                 curl_close($curl);
-
+                
                 $avatar_link = $matches[0];
                 $user_id = $matches[1];
 
