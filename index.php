@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 $title = "Index";
 $page = "index.php";
 

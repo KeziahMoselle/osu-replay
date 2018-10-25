@@ -1,6 +1,8 @@
 <?php
 
-$key = "<osu!ApiKey>";
+require('config.php');
+
+$key = $config['OSU_API_KEY'];
 
 // Beatmap
 function get_beatmaps($key,$beatmap_id)
