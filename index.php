@@ -72,6 +72,11 @@ require 'libs/search.php';
                                       <li>Remove from favorites</li>
                                     <?php endif; ?>
                                     </a>
+                                    <?php if ($replay['uploader'] == $_SESSION['username']): ?>
+                                      <a href="libs/delete_replay.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>">
+                                        <li>Delete</li>
+                                      </a>
+                                    <?php endif; ?>
                                   <?php endif; ?>
                                 </ul>
                               </div>

@@ -28,7 +28,7 @@ if ($token = $_SESSION['token'])
       $updateReplayCounter = $db->prepare("UPDATE users SET replays=? WHERE id=?");
       $updateReplayCounter->execute(array($ReplayCounter,$_SESSION['id']));
       // Redir
-      header('Location: ../my-replays.php');
+      header("Location: ../$page");
     }
     else
     {
