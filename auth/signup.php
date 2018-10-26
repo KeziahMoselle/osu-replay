@@ -3,38 +3,33 @@ session_start();
 $title = "Sign up";
 $page = "auth/signup.php";
 
+
 if (isset($_POST['signup']))
 { //Si on soumet le formulaire
     if (isset($_POST['username'], $_POST['password'], $_POST['c_password']))
     { //Si tous les champs sont remplis
-
+        
         require '../libs/db.php';
         $username = htmlspecialchars($_POST['username']);
         $password = sha1($_POST['password']);
         $c_password = sha1($_POST['c_password']);
-
+        
         if (strlen($username) < 16)
         { //Longueur du pseudo valide
-
+            
             $check_username = $db->prepare('SELECT * FROM users WHERE username = ?');
             $check_username->execute(array($username));
-
+            
             if (!$check_username->rowCount())
             { //Si le pseudo n'existe pas dans la bdd
-
-                $curl = curl_init();
+                
                 $url = "https://osu.ppy.sh/users/$username";
-                curl_setopt($curl, CURLOPT_URL, $url);
-                curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-                $result = curl_exec($curl);
+                $result = file_get_contents($url);
+                preg_match("^(\d*)\?(\d*)\.jpeg^", $result, $matches);
                 
-                preg_match("^https:\/\/a\.ppy\.sh\/(\d*)\?(\d*)\.jpeg^", $result, $matches);
-                curl_close($curl);
-                
-                $avatar_link = $matches[0];
+                $avatar_link = "https://a.ppy.sh/$matches[1]?$matches[2].jpeg";
                 $user_id = $matches[1];
-
+                
                 if ($password == $c_password)
                 { //Les mots de passe sont identiques
                     $insert = $db->prepare('INSERT INTO users(username,password,user_id,avatar_link) VALUES(?,?,?,?)');
@@ -65,7 +60,7 @@ if (isset($_POST['signup']))
             }
             else
             { //Si le pseudo existe
-                $notif = "Username already used.";
+                $notif = "Username already exists.";
             }
         }
         else
@@ -125,8 +120,8 @@ if (isset($_POST['signup']))
                                   <label for="password">Password</label>
                                 </div>
                                 <div class="input-field col s12 m6 offset-m3">
-                                  <input name="c_password" id="password" type="password" placeholder="********" required>
-                                  <label for="password">Confirm Password</label>
+                                  <input name="c_password" id="password_c" type="password" placeholder="********" required>
+                                  <label for="password_c">Confirm Password</label>
                                 </div>
                         </div>
                         <div class="card-action center">
