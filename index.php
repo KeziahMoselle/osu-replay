@@ -53,7 +53,7 @@ require 'libs/search.php';
                             </div>
                             <img src="https://assets.ppy.sh//beatmaps/<?=$replay["beatmapset_id"]?>/covers/card.jpg">
                             <span class="card-title truncate"><?=$replay["title"]?><br/><?=$replay["artist"]?> by <?=$replay["creator"]?></span>
-                              <div class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2 list-fab"><i class="material-icons">more_vert</i></div>
+                              <div class="btn-floating halfway-fab waves-effect waves-light <?php if($isfav->rowCount() == 0) { echo 'deep-purple accent-2'; } else { echo 'pink'; } ?> list-fab"><i class="material-icons">more_vert</i></div>
                               <div class="list-menu">
                                 <ul>
                                   <a href="libs/download.php?id=<?=$replay['id']?>">
