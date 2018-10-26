@@ -66,7 +66,7 @@
             </div>
 
             <div class="input-field col s12 l6 offset-l3">
-              <input name="player_username" id="player_username" type="text" placeholder="Abcdef" required>
+              <input name="player_username" id="player_username" type="text" placeholder="Username of the player" <?= 'value="'.$_SESSION['username'].'"' ?> required>
               <label for="player_username">Player username</label>
             </div>
 
