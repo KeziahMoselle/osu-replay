@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 require 'db.php';
 
@@ -12,16 +11,11 @@ if (isset($_POST['search']))
   $query->execute();
 
   echo json_encode($replays = $query->fetch());
-
-
-
 }
 else
 {
-
   $query = $db->prepare('SELECT * FROM replays WHERE visibility = ? ORDER BY id DESC');
   $query->execute(array("public"));
-
 }
 
 ?>

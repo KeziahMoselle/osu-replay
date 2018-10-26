@@ -1,8 +1,8 @@
 <footer class="page-footer grey darken-4">
   <div class="footer-copyright">
     <div class="container">
-        osu!replay by <a href="https://osu.ppy.sh/u/5914915">Nemesis-</a>
-        <a class="grey-text text-lighten-4 right" href="about.php">Informations</a>
+        osu!replay by <a href="https://osu.ppy.sh/users/5914915">Nemesis-</a>
+        <a class="grey-text text-lighten-4 right" href="about.php">About</a>
     </div>
   </div>
 </footer>

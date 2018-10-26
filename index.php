@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 $title = "Index";
 $page = "index.php";
 
@@ -41,8 +42,10 @@ require 'libs/search.php';
 
                 <?php while($replay = $query->fetch()): ?>
                   <?php
-                    $isfav = $db->prepare('SELECT * FROM favorites WHERE user = ? AND replay = ?');
-                    $isfav->execute(array($_SESSION['id'],$replay['id']));
+                    if ($_SESSION['auth'] == 1) {
+                      $isfav = $db->prepare('SELECT * FROM favorites WHERE user = ? AND replay = ?');
+                      $isfav->execute(array($_SESSION['id'],$replay['id']));
+                    }
                   ?>
                     <div class="col s12 m6 l4">
                       <div class="card grey lighten-3">
@@ -52,7 +55,7 @@ require 'libs/search.php';
                             </div>
                             <img src="https://assets.ppy.sh//beatmaps/<?=$replay["beatmapset_id"]?>/covers/card.jpg">
                             <span class="card-title truncate"><?=$replay["title"]?><br/><?=$replay["artist"]?> by <?=$replay["creator"]?></span>
-                              <div class="btn-floating halfway-fab waves-effect waves-light deep-purple accent-2 list-fab"><i class="material-icons">more_vert</i></div>
+                              <div class="btn-floating halfway-fab waves-effect waves-light list-fab <?php if($_SESSION['auth'] == 0) { echo 'deep-purple accent-2'; } ?> <?php if($_SESSION['auth'] == 1) { if($isfav->rowCount() == 0) { echo 'deep-purple accent-2'; } else { echo 'pink'; } } ?>"><i class="material-icons">more_vert</i></div>
                               <div class="list-menu">
                                 <ul>
                                   <a href="libs/download.php?id=<?=$replay['id']?>">
@@ -60,10 +63,10 @@ require 'libs/search.php';
                                   </a>
                                   <?php if (strlen($replay['youtube_url']) != 0): ?>
                                     <a href="<?=$replay['youtube_url']?>">
-                                      <li>View</li>
+                                      <li>View on YouTube</li>
                                     </a>
                                   <?php endif; ?>
-                                  <?php if (isset($_SESSION['auth'])): ?>
+                                  <?php if ($_SESSION['auth'] == 1): ?>
                                     <a href="libs/favorite.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>&ref=<?=$page?>">
                                     <?php if ($isfav->rowCount() == 0): ?>
                                       <li>Add to favorite</li>
@@ -71,6 +74,14 @@ require 'libs/search.php';
                                       <li>Remove from favorites</li>
                                     <?php endif; ?>
                                     </a>
+                                    <?php if ($replay['uploader'] == $_SESSION['username']): ?>
+                                      <a href="edit.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>">
+                                        <li>Edit</li>
+                                      </a>
+                                      <a href="libs/delete_replay.php?id=<?=$replay['id']?>&token=<?=$_SESSION['token']?>">
+                                        <li>Delete</li>
+                                      </a>
+                                    <?php endif; ?>
                                   <?php endif; ?>
                                 </ul>
                               </div>
@@ -94,20 +105,5 @@ require 'libs/search.php';
 
 
         <?php require 'templates/footer.php'; ?>
-        <script type="text/javascript">
-
-          $("input").keyup(function(){
-
-            $.post("libs/search.php",
-            {
-              search : $("input").val()
-            },
-            function(data)
-            {
-              console.log(JSON.parse(data));
-            });
-
-          });
-        </script>
     </body>
 </html>
