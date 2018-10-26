@@ -5,7 +5,7 @@ __The cloud for replays__
 You can share your replays or just save them privately.
 
 ## THIS IS AN EDUCATIONAL PROJECT
-This is an old project to learn API and PHP. This project is not maintained anymore.
+This is an old project to learn API and PHP.
 
 ## Preview
 ![preview](./assets/preview.gif)
